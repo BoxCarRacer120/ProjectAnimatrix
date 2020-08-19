@@ -1,0 +1,39 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">
+        <img src="assets/logo.png" width="100" height="100" />
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto" *ngIf="user; else menuLogin">
+            <li class="nav-item active">
+                <a class="nav-link" routerLink="/">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/registrarCancion">Registrar Canción</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/misCanciones">Todas mis canciones</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" (click)="destroySession()">Cerrar sesión</a>
+            </li>
+        </ul>
+        <span class="form-inline" *ngIf="user;">
+            Hola {{this.user.firstName}}
+        </span>
+        <!-- Este es el else... Se escribe en un template de angular para indicar que si no se cumple la condición anterior, entonces nos muestre este bloque de código -->
+        <ng-template #menuLogin>
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/registrarUsuario">Registrar usuario</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/login">Iniciar Sesión</a>
+                </li>
+            </ul>
+        </ng-template>
+    </div>
+</nav>
