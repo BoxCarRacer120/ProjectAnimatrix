@@ -8,7 +8,10 @@ const UserSchema = Schema({
     email: String,
     password: String,
     role: String,
-    image: String
+    image: String,
+    nickname: String,
+	internalid: String,
+    favorites: String,
 })
 
 

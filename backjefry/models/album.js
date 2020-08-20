@@ -3,11 +3,15 @@ const Schema = mongoose.Schema
 
 
 const AlbumSchema = Schema({
-    title: String,
-    description: String,
-    year: Number,
+    name: { type: String, required: true },
+    author: { type: Schema.Types.ObjectId, ref: 'User' },
+    genre: { type: String, required: true }, // 
+    sinopsis: String,
+    precluela: String,
+    secuela: String,
     image: String,
-    _id_artist:{type: Schema.ObjectId, ref:'Artist'}
+    serieId: Number,
+    characters: { type: String, required: true },
 })
 
 
