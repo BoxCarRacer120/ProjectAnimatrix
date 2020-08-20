@@ -25,7 +25,7 @@ export class SongService {
   }
 
     createSong(formData){
-      return this.http.post<Song>(`${this.apiURL}/create-song`, formData, this.prepareHeaders());
+      return this.http.post<Song>(`${this.apiURL}/create-song`, formData);
     }
 
     getSongs(filter, page){
