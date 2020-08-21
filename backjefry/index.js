@@ -7,7 +7,7 @@ mongoose.Promise = global.Promise;
 
 
 
-mongoose.connect('mongodb://localhost:27017/bitMusic', { useNewUrlParser: true, useUnifiedTopology: true }, (err, res) => {
+mongoose.connect('mongodb://localhost:27017/animatrixdb', { useNewUrlParser: true, useUnifiedTopology: true }, (err, res) => {
     if (err) {
         console.log('No nos pudimos conectar');
     } else {

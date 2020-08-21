@@ -1,5 +1,5 @@
-const Song = require('../models/song')
-const { count } = require('../models/song')
+const Cap = require('../models/caps')
+const { count } = require('../models/caps')
 let fs = require('fs');
 const path = require('path')
 
@@ -36,26 +36,22 @@ exports.create = (req, res) => {
 
     verificarDatos(req, res)
 
-    Song.countDocuments().then(count => {
-        const song = new Song({
-            number: (count + 1),
-            name: req.body.name,
+    Cap.countDocuments().then(count => {
+        const cap = new Cap({
+            capNumber: req.body.capNumber, /** */
+            capName: req.body.capName,/** */
             duration: req.body.duration,
             file: obtenerNombreCancion(req),
-            author: req.body.author
         })
 
-        song.save().then(data => {
+        cap.save().then(data => {
             res.send(data)
         }).catch(err => {
             res.status(500).send({
-                message: err.message || 'Error al crear la canción'
+                message: err.message || 'Error al subir capitulo'
             })
         })
     })
-
-
-
 }
 
 /**
@@ -63,10 +59,10 @@ exports.create = (req, res) => {
  * @param {*} req => Requerir los parametros que enviamos en la solicitud: Postman, Angular.
  * @param {*} res => Respuesta que vamos a retornar.
  */
-exports.update = (req, res) => {
+/* exports.update = (req, res) => {
     verificarDatos(req, res)
 
-    const song = {
+    const cap = {
             name: req.body.name,
             duration: req.body.duration,
             file: obtenerNombreCancion(req)
@@ -75,7 +71,7 @@ exports.update = (req, res) => {
          * Parametros de findByIdAndUpdate:
          * Primer parametro: El id del objeto a modificar.
          * Segundo parametros: Datos a modificar.
-         */
+         *//*
 
     Song.findByIdAndUpdate(req.params.idSong, song, { new: true }).then(song => {
         if (!song) {
@@ -95,7 +91,7 @@ exports.update = (req, res) => {
         })
     })
 
-}
+} */
 
 /**
  * Función creada para obtener todas la canciones

@@ -9,9 +9,9 @@ const UserSchema = Schema({
     password: String,
     role: String,
     image: String,
-    nickname: String,
+   /*  nickname: String,
 	internalid: String,
-    favorites: String,
+    favorites: String, */
 })
 
 
