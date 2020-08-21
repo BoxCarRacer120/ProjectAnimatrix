@@ -38,7 +38,8 @@ exports.create = (req, res) => {
 
     Cap.countDocuments().then(count => {
         const cap = new Cap({
-            capNumber: req.body.capNumber, /** */
+            seriesId: req.body.seriesId,
+            //capNumber: req.body.capNumber, /** */
             capName: req.body.capName,/** */
             duration: req.body.duration,
             file: obtenerNombreCancion(req),

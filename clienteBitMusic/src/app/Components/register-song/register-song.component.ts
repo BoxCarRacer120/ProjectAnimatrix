@@ -34,7 +34,7 @@ export class RegisterSongComponent implements OnInit {
     this.capForm = this.formBuilder.group({
       seriesId: ['', Validators.required],
       capName: ['', Validators.required],
-      capNumber: ['', Validators.required],
+      //capNumber: ['', Validators.required],
       duration: ['', Validators.required],
       file: [null, Validators.required],
     })
@@ -44,19 +44,18 @@ export class RegisterSongComponent implements OnInit {
     if(this.capForm.valid){
       
       const cap = this.capForm.value;
-
       const formData = new FormData();
-      formData.append('name', cap.name);
+      formData.append('capName', cap.capName);
       formData.append('duration', cap.duration);
       formData.append('file', this.file);
-      formData.append('author', cap.author);
-
+      formData.append('seriesId', cap.seriesId);
       this.capService.createCap(formData).subscribe(
-        (createdSong) => {
+          (createdSong) => {
           swal('Canción creada', "", 'success'); //Mostrar mensajes con sweetalert
           this.route.navigate(['/misCanciones']);//Redireccionar a otro componente.
         },
         (error) => {
+          console.log("aqui llego")
           console.error("Error al crear la canción", error)
         }
       );
