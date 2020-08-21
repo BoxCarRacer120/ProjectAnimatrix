@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
-import { SongService } from '../../services/song.service';
+import { CapService } from '../../services/cap.service';
 const swal = require('sweetalert'); 
 /**npm install sweetalert --save
  *  npm i @types/node
@@ -15,11 +15,11 @@ const swal = require('sweetalert');
 })
 export class RegisterSongComponent implements OnInit {
 
-  songForm: FormGroup;
+  capForm: FormGroup;
   public file: File;
   constructor(
     private formBuilder: FormBuilder,
-    private songService: SongService,
+    private capService: CapService,
     private routeParams: ActivatedRoute, //Lo vamos a utilizar para obtener los parametros de la url.
     private route: Router //Para generar redirecciones
   ) {
@@ -31,26 +31,27 @@ export class RegisterSongComponent implements OnInit {
   }
 
   validateForm(){
-    this.songForm = this.formBuilder.group({
-      name: ['', Validators.required],
+    this.capForm = this.formBuilder.group({
+      seriesId: ['', Validators.required],
+      capName: ['', Validators.required],
+      capNumber: ['', Validators.required],
       duration: ['', Validators.required],
       file: [null, Validators.required],
-      author: ['5f3339e0f716a43944cd56b8', Validators.required],
     })
   }
 
-  registerSong(){
-    if(this.songForm.valid){
+  registerCap(){
+    if(this.capForm.valid){
       
-      const song = this.songForm.value;
+      const cap = this.capForm.value;
 
       const formData = new FormData();
-      formData.append('name', song.name);
-      formData.append('duration', song.duration);
+      formData.append('name', cap.name);
+      formData.append('duration', cap.duration);
       formData.append('file', this.file);
-      formData.append('author', song.author);
+      formData.append('author', cap.author);
 
-      this.songService.createSong(formData).subscribe(
+      this.capService.createCap(formData).subscribe(
         (createdSong) => {
           swal('Canción creada', "", 'success'); //Mostrar mensajes con sweetalert
           this.route.navigate(['/misCanciones']);//Redireccionar a otro componente.
@@ -67,7 +68,7 @@ export class RegisterSongComponent implements OnInit {
 
   }
 
-  prepareSong(event: any){
+  prepareCap(event: any){
     this.file = <File>event.target.files[0];
   }
 

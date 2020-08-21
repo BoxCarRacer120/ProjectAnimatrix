@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http'; //Nos permite hacer conexiones con aplicaciones externas utilizando el protocolo http
-import { Song } from '../models/Song'; //Cargamos el modelo
+import { Cap } from '../models/Cap'; //Cargamos el modelo
 import { UserService } from './user.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class SongService {
+export class CapService {
 
   apiURL: String = 'http://localhost:3000/api';
 
@@ -24,16 +24,16 @@ export class SongService {
     }
   }
 
-    createSong(formData){
-      return this.http.post<Song>(`${this.apiURL}/create-song`, formData);
+    createCap(formData){
+      return this.http.post<Cap>(`${this.apiURL}/create-song`, formData);
     }
 
-    getSongs(filter, page){
+    getCaps(filter, page){
       console.log('Esta es la ruta de page --> ', `${page}`)
       return this.http.get(`${this.apiURL}/getAll/${page}${filter}`, this.prepareHeaders())
     }
 
-    getTotalSongs(){
+    getTotalCaps(){
       return  this.http.get(`${this.apiURL}/getTotalSongs`, this.prepareHeaders())
     }
 

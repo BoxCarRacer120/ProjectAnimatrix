@@ -1,6 +1,6 @@
-import { SongService } from '../services/song.service';
+import { CapService } from '../services/cap.service';
 
-export interface Song{
+export interface Cap{
     id: String;
     number: Number;
     name: String;

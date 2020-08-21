@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SongService } from '../../services/song.service';
+import { CapService } from '../../services/cap.service';
 
 @Component({
   selector: 'app-my-songs',
@@ -16,7 +16,7 @@ export class MySongsComponent implements OnInit {
   totalTabs: Array<any>;
 
   constructor(
-    private songService: SongService
+    private songService: CapService
   ) {
     this.apiURL = this.songService.apiURL
   }
@@ -36,7 +36,7 @@ export class MySongsComponent implements OnInit {
 
     //let filter = (typeof this.search == "string" && this.search.length > 0) ? `?searchBy=${this.search}` : '';
     console.log("page --> ", page )
-    this.songService.getSongs(filter, page).subscribe(
+    this.songService.getCaps(filter, page).subscribe(
       ( allSongs: Array<any> ) =>{
         this.totSongs = allSongs.length
         this.songs = allSongs
@@ -76,7 +76,7 @@ export class MySongsComponent implements OnInit {
   }
 
   getTotalSongs(){
-    this.songService.getTotalSongs().subscribe( ( totAllSongs: any ) => {
+    this.songService.getTotalCaps().subscribe( ( totAllSongs: any ) => {
       let tabs = Math.ceil(totAllSongs.total / 10);
       this.totalTabs = Array.apply(null, new Array(tabs)).map( (e, i) => ++i  );
       //let array = new Array(tabs);
