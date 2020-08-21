@@ -14,10 +14,10 @@ const api = express.Router()
 const multipart = require('connect-multiparty')
 const uploadSong = multipart({ uploadDir: './assets/songs' })
 
-api.post('/create-song',  uploadSong, cap.create)
+api.post('/create-song', uploadSong, cap.create)
 //api.put('/update-song/:idSong', mdAuth.authUser, uploadSong, cap.update)
 api.get('/getAll/:page', mdAuth.authUser, cap.findAll)
-api.get('/getSongFile/:nameSong', cap.getSongFile)
-api.get('/getTotalSongs', mdAuth.authUser, cap.getTotalSongs)
+api.get('/getSongFile/:nameSong', cap.getCapFile)
+api.get('/getTotalSongs', mdAuth.authUser, cap.getTotalCaps)
 
 module.exports = api

@@ -1,5 +1,5 @@
 const Cap = require('../models/caps')
-const { count } = require('../models/caps')
+
 let fs = require('fs');
 const path = require('path')
 
@@ -74,23 +74,23 @@ exports.create = (req, res) => {
          * Segundo parametros: Datos a modificar.
          *//*
 
-    Song.findByIdAndUpdate(req.params.idSong, song, { new: true }).then(song => {
-        if (!song) {
-            return res.status(404).send({
-                message: "No se encontró la canción"
-            })
-        }
-        res.send(song)
-    }).catch(error => {
-        if (error.kind == 'ObjectId') {
-            return res.status(404).send({
-                message: "No se encontró la canción"
-            })
-        }
-        return res.status(500).send({
-            message: "Error al actualizar la canción " + error
-        })
-    })
+Song.findByIdAndUpdate(req.params.idSong, song, { new: true }).then(song => {
+if (!song) {
+   return res.status(404).send({
+       message: "No se encontró la canción"
+   })
+}
+res.send(song)
+}).catch(error => {
+if (error.kind == 'ObjectId') {
+   return res.status(404).send({
+       message: "No se encontró la canción"
+   })
+}
+return res.status(500).send({
+   message: "Error al actualizar la canción " + error
+})
+})
 
 } */
 
@@ -101,9 +101,9 @@ exports.create = (req, res) => {
  */
 exports.findAll = (req, res) => {
     let page = ((req.params.page - 1) * 10)
-        //Mostrar solo algunos campos se puede hacer así:
-        //'name duration' -> Se separa por espacios
-        //['name', 'duration'] -> Cada campo es un elemento del arreglo
+    //Mostrar solo algunos campos se puede hacer así:
+    //'name duration' -> Se separa por espacios
+    //['name', 'duration'] -> Cada campo es un elemento del arreglo
 
     /** Expresiones Regulares  */
     //i => Sin importar que los datos estén en mayúscula o minúscula los encontrará.
@@ -122,19 +122,19 @@ exports.findAll = (req, res) => {
 
     let name = new RegExp(`.*${req.query.searchBy || ''}.*`, 'i')
 
-    Song.find({ name: name }, null, { skip: page, limit: 10 })
+    Cap.find({ name: name }, null, { skip: page, limit: 10 })
         .populate('author')
         .exec()
         .then(songs => {
             res.send(songs)
         }).catch(error => {
             res.status(500).send({
-                message: error.message || "Error al obtener las canciones"
+                message: error.message || "Error al obtener las capitulo"
             })
         })
 }
 
-exports.getSongFile = (req, res) => {
+exports.getCapFile = (req, res) => {
     const songRoute = './assets/songs/' + req.params.nameSong;
     fs.exists(songRoute, (exist) => {
         if (exist) {
@@ -147,14 +147,14 @@ exports.getSongFile = (req, res) => {
     })
 }
 
-exports.getTotalSongs = (req, res) => {
+exports.getTotalCaps = (req, res) => {
     Song.countDocuments().then(count => {
         res.status(200).send({
             total: count
         })
     }).catch(error => {
         res.status(500).send({
-            message: error.message || "error al obtener las canciones"
+            message: error.message || "error al obtener las capitulo"
         })
     })
 }
