@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 
-const AlbumSchema = Schema({
+const SerieSchema = Schema({
     name: { type: String, required: true },
     author: { type: Schema.Types.ObjectId, ref: 'User' },
     genre: { type: String, required: true }, // 
@@ -15,4 +15,4 @@ const AlbumSchema = Schema({
 })
 
 
-module.exports = mongoose.model('Album', AlbumSchema)
+module.exports = mongoose.model('Serie', SerieSchema)

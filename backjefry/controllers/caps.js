@@ -47,7 +47,9 @@ exports.create = (req, res) => {
 
         cap.save().then(data => {
             res.send(data)
-        }).catch(err => {
+            
+        }).catch(err => { 
+            console.log ("llego a este controlador",err)
             res.status(500).send({
                 message: err.message || 'Error al subir capitulo'
             })
@@ -125,8 +127,8 @@ exports.findAll = (req, res) => {
     Cap.find({ name: name }, null, { skip: page, limit: 10 })
         .populate('author')
         .exec()
-        .then(songs => {
-            res.send(songs)
+        .then(caps => {
+            res.send(caps)
         }).catch(error => {
             res.status(500).send({
                 message: error.message || "Error al obtener las capitulo"
@@ -135,10 +137,10 @@ exports.findAll = (req, res) => {
 }
 
 exports.getCapFile = (req, res) => {
-    const songRoute = './assets/songs/' + req.params.nameSong;
-    fs.exists(songRoute, (exist) => {
+    const capsRoute = './assets/caps/' + req.params.nameCap;
+    fs.exists(capsRoute, (exist) => {
         if (exist) {
-            res.sendFile(path.resolve(songRoute))
+            res.sendFile(path.resolve(capsRoute))
         } else {
             res.status(404).send({
                 message: "El archivo no existe"
@@ -148,13 +150,13 @@ exports.getCapFile = (req, res) => {
 }
 
 exports.getTotalCaps = (req, res) => {
-    Song.countDocuments().then(count => {
+    Cap.countDocuments().then(count => {
         res.status(200).send({
             total: count
         })
     }).catch(error => {
         res.status(500).send({
-            message: error.message || "error al obtener las capitulo"
+            message: error.message || "error al obtener el capitulo"
         })
     })
 }

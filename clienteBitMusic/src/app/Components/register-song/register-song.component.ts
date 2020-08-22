@@ -60,7 +60,7 @@ export class RegisterSongComponent implements OnInit {
           },
           (error) => {
             console.log("aqui llego")
-            console.error("Error al crear la canción", error)
+           console.error("Error al crear la canción", error) 
           }
         );
       } else {
