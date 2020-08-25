@@ -9,7 +9,6 @@ const path = require('path')
  * @param {*} res => Respuesta a retornar.
  */
 function verificarDatos(req, res) {
-    console.log("req --->", req.body)
     if (!req.body) {
         return res.status(400).send({ message: 'El contenido no puede estar vacío' })
     }
@@ -39,8 +38,8 @@ exports.create = (req, res) => {
     Cap.countDocuments().then(count => {
         const cap = new Cap({
             seriesId: req.body.seriesId,
-            //capNumber: req.body.capNumber, /** */
-            capName: req.body.capName,/** */
+            capNumber: req.body.capNumber,
+            capName: req.body.capName,
             duration: req.body.duration,
             file: obtenerNombreCancion(req),
         })
@@ -49,7 +48,6 @@ exports.create = (req, res) => {
             res.send(data)
 
         }).catch(err => {
-            console.log("llego a este controlador", err)
             res.status(500).send({
                 message: err.message || 'Error al subir capitulo'
             })
@@ -126,7 +124,6 @@ exports.findAll = (req, res) => {
 
     Cap.find({ capName: name }, null, { skip: page, limit: 10 })
         .then(caps => {
-            console.log("CAPS------------------->", caps);
             res.send(caps)
         }).catch(error => {
             res.status(500).send({

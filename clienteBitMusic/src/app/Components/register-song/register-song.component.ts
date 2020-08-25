@@ -34,7 +34,7 @@ export class RegisterSongComponent implements OnInit {
     this.capForm = this.formBuilder.group({
       seriesId: ['', Validators.required],
       capName: ['', Validators.required],
-      //capNumber: ['', Validators.required],
+      capNumber: ['', Validators.required],
       duration: ['', Validators.required],
       file: [null, Validators.required],
     })
@@ -50,6 +50,8 @@ export class RegisterSongComponent implements OnInit {
       const formData = new FormData();
       formData.append('capName', cap.capName);
       formData.append('duration', cap.duration);
+      formData.append('capNumber', cap.capNumber);
+
       formData.append('file', this.file);
       formData.append('seriesId', cap.seriesId);
       if (formatoCap == "mp4" || formatoCap == "avi") {
@@ -60,7 +62,7 @@ export class RegisterSongComponent implements OnInit {
           },
           (error) => {
             console.log("aqui llego")
-           console.error("Error al crear la canción", error) 
+            console.error("Error al crear la canción", error)
           }
         );
       } else {

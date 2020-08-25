@@ -6,13 +6,13 @@
             (keyup)="loadSongs(page)" [(ngModel)]="search">
         <div class="row mt-5">
             <div class="col">
-                <div class="row mb-2" *ngFor="let song of songs">
+                <div class="row mb-2" *ngFor="let cap of caps">
                     <div class="col">
-                        {{song.capName}}
+                        {{cap.capName}}
                     </div>
                     <div class="col">
-                        <input type="hidden" id="{{song.number}}" value="{{song.file}}" />
-                        <i class="fas fa-play-circle icon-player" (click)="changeSong(song.file, song.number)"></i>
+                        <input type="hidden" id="{{cap.capNumber}}" value="{{cap.file}}" />
+                        <i class="fas fa-play-circle icon-player" (click)="changeSong(cap.file, cap.capNumber)"></i>
                     </div>
                 </div>
                 <div class="row">
@@ -38,8 +38,7 @@
                         <i class="fas fa-backward icon-player" (click)="changeSong('previous')"></i>
                     </div>
                     <div class="col-8">
-                        <!--<audio src="{{apiURL+'/getSongFile/'+song.file}}" controls></audio>-->
-                        <audio style="width: 100%;" src="" controls id="player" data-song=""></audio>
+                        <video style="width: 100%;" src="" controls id="player" data-song=""></video>
                     </div>
                     <div class="col text-left">
                         <i class="fas fa-forward icon-player" (click)="changeSong('next')"></i>

@@ -12,6 +12,10 @@
             <label for="capName">Nombre Capitulo</label>
             <input id="capName" name="capName" formControlName="capName" type="text" class="form-control">
         </div>
+        <div class="form-group">
+            <label for="capNumber">Numero del capitulo</label>
+            <input id="capNumber" name="capNumber" formControlName="capNumber" type="number" class="form-control">
+        </div>
 
         <div class="form-group">
             <label for="duration">Duración</label>
@@ -20,10 +24,12 @@
 
         <div class="form-group">
             <label for="file"> Archivo del capitulo </label>
-            <input id="file" name="file" formControlName="file" type="file" (change)="prepareCap($event)" class="form-control">
+            <input id="file" name="file" formControlName="file" type="file" (change)="prepareCap($event)"
+                class="form-control">
         </div>
 
-        <div *ngIf="!capForm.get('capName').valid || !capForm.get('duration').valid  || !capForm.get('file').valid">
+        <div
+            *ngIf="!capForm.get('capName').valid || !capForm.get('duration').valid  || !capForm.get('file').valid || !capForm.get('capNumber').valid">
             <div class="text-danger">
                 Debes llenar todos los campos
             </div>
