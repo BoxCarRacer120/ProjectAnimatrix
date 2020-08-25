@@ -27,38 +27,39 @@ export class MySongsComponent implements OnInit {
     this.loadSongs(this.page)
   }
 
-  loadSongs(page: any){
+  loadSongs(page: any) {
     console.log('this.search -> ', this.search)
     let filter = ''
-    if(typeof this.search == "string" && this.search.length > 0){
-        filter = `?searchBy=${this.search}`
+    if (typeof this.search == "string" && this.search.length > 0) {
+      filter = `?searchBy=${this.search}`
     }
 
     //let filter = (typeof this.search == "string" && this.search.length > 0) ? `?searchBy=${this.search}` : '';
-    console.log("page --> ", page )
+    console.log("SONG SERVICE --> ", this.songService.getCaps(filter, page))
     this.songService.getCaps(filter, page).subscribe(
-      ( allSongs: Array<any> ) =>{
+      (allSongs: Array<any>) => {
         this.totSongs = allSongs.length
         this.songs = allSongs
+        console.log(this.songs, "------------------------ songs");
       }
     )
   }
 
-  changeSong(song, numberSong = ''){
+  changeSong(song, numberSong = '') {
     const audio: HTMLMediaElement = document.getElementById('player') as HTMLMediaElement;
 
-    if(numberSong == ''){
+    if (numberSong == '') {
       let dataSong: any = audio.getAttribute('data-song');
 
-      if(song == 'previous'){
+      if (song == 'previous') {
         dataSong = dataSong - 1;
-      }else{
+      } else {
         dataSong = Number(dataSong) + 1;
       }
 
-      if (dataSong <= 0){
+      if (dataSong <= 0) {
         dataSong = this.totSongs
-      }else if (dataSong > this.totSongs ){
+      } else if (dataSong > this.totSongs) {
         dataSong = '1';
       }
       numberSong = dataSong;
@@ -69,19 +70,20 @@ export class MySongsComponent implements OnInit {
 
     const urlSong = `${this.apiURL}/getSongFile/${song}`;
     audio.setAttribute('src', urlSong);
-    console.log("numberSong --> ",  numberSong);
+    console.log("numberSong --> ", numberSong);
     audio.setAttribute('data-song', numberSong);
     audio.play();
 
   }
 
-  getTotalSongs(){
-    this.songService.getTotalCaps().subscribe( ( totAllSongs: any ) => {
+  getTotalSongs() {
+    // console.log(this.songService.getTotalCaps(), "----------------------------------<");
+    this.songService.getTotalCaps().subscribe((totAllSongs: any) => {
       let tabs = Math.ceil(totAllSongs.total / 10);
-      this.totalTabs = Array.apply(null, new Array(tabs)).map( (e, i) => ++i  );
+      this.totalTabs = Array.apply(null, new Array(tabs)).map((e, i) => ++i);
       //let array = new Array(tabs);
       //console.log("array --> ", array)
-    } )
+    })
   }
 
 }

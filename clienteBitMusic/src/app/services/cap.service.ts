@@ -15,7 +15,7 @@ export class CapService {
     private user: UserService
   ) { }
 
-  prepareHeaders(){
+  prepareHeaders() {
     return {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
@@ -24,17 +24,18 @@ export class CapService {
     }
   }
 
-    createCap(formData){
-      return this.http.post<Cap>(`${this.apiURL}/create-song`, formData);
-    }
+  createCap(formData) {
+    return this.http.post<Cap>(`${this.apiURL}/create-song`, formData);
+  }
 
-    getCaps(filter, page){
-      console.log('Esta es la ruta de page --> ', `${page}`)
-      return this.http.get(`${this.apiURL}/getAll/${page}${filter}`, this.prepareHeaders())
-    }
+  getCaps(filter, page) {
+    console.log('Esta es la ruta de page --> ', `${page}`)
+    return this.http.get(`${this.apiURL}/getAll/${page}${filter}`, this.prepareHeaders())
 
-    getTotalCaps(){
-      return  this.http.get(`${this.apiURL}/getTotalSongs`, this.prepareHeaders())
-    }
+  }
+
+  getTotalCaps() {
+    return this.http.get(`${this.apiURL}/getTotalSongs`, this.prepareHeaders())
+  }
 
 }

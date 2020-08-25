@@ -47,9 +47,9 @@ exports.create = (req, res) => {
 
         cap.save().then(data => {
             res.send(data)
-            
-        }).catch(err => { 
-            console.log ("llego a este controlador",err)
+
+        }).catch(err => {
+            console.log("llego a este controlador", err)
             res.status(500).send({
                 message: err.message || 'Error al subir capitulo'
             })
@@ -78,19 +78,19 @@ exports.create = (req, res) => {
 
 Song.findByIdAndUpdate(req.params.idSong, song, { new: true }).then(song => {
 if (!song) {
-   return res.status(404).send({
-       message: "No se encontró la canción"
-   })
+return res.status(404).send({
+message: "No se encontró la canción"
+})
 }
 res.send(song)
 }).catch(error => {
 if (error.kind == 'ObjectId') {
-   return res.status(404).send({
-       message: "No se encontró la canción"
-   })
+return res.status(404).send({
+message: "No se encontró la canción"
+})
 }
 return res.status(500).send({
-   message: "Error al actualizar la canción " + error
+message: "Error al actualizar la canción " + error
 })
 })
 
@@ -124,10 +124,9 @@ exports.findAll = (req, res) => {
 
     let name = new RegExp(`.*${req.query.searchBy || ''}.*`, 'i')
 
-    Cap.find({ name: name }, null, { skip: page, limit: 10 })
-        .populate('author')
-        .exec()
+    Cap.find({ capName: name }, null, { skip: page, limit: 10 })
         .then(caps => {
+            console.log("CAPS------------------->", caps);
             res.send(caps)
         }).catch(error => {
             res.status(500).send({

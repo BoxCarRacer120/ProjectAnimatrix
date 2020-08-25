@@ -3,15 +3,15 @@ const Schema = mongoose.Schema
 
 
 const SerieSchema = Schema({
-    name: { type: String, required: true },
-    author: { type: Schema.Types.ObjectId, ref: 'User' },
-    genre: { type: String, required: true }, // 
-    sinopsis: String,
+    name: { type: String, required: true },
+    author: { type: String, required: true },
+    genre: { type: String, required: true },
+    sinopsis: { type: String, required: true },
     precluela: String,
     secuela: String,
-    image: String,
-    serieId: Number,
-    characters: { type: String, required: true },
+    image: { type: String, required: true },
+    serieId: { type: Number, required: true },
+    numeroCapitulos: Number,
 })
 
 

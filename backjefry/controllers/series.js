@@ -30,32 +30,31 @@ exports.create = (req, res) => {
     Serie.countDocuments().then(count => {
         const serie = new Serie({
             seriesId: count + 1,
-            //capNumber: req.body.capNumber, /** */
-            capName: req.body.capName,/** */
-            duration: req.body.duration,
-            file: obtenerImagen(req),
+            sinopsis: req.body.sinopsis,
+            name: req.body.name,
+            image: obtenerImagen(req),
+            genre: req.body.genre,
+            author: req.body.author
         })
 
         serie.save().then(data => {
             res.send(data)
         }).catch(err => {
             res.status(500).send({
-                message: err.message || 'Error al subir capitulo'
+                message: err.message || 'Error al crear serie'
             })
         })
     })
 }
-
+// Preguntar------------------------------------------------<
 exports.findAll = (req, res) => {
     let page = ((req.params.page - 1) * 10)
 
     let name = new RegExp(`.*${req.query.searchBy || ''}.*`, 'i')
 
     Serie.find({ name: name }, null, { skip: page, limit: 10 })
-        .populate('author')
-        .exec()
-        .then(songs => {
-            res.send(songs)
+        .then(series => {
+            res.send(series)
         }).catch(error => {
             res.status(500).send({
                 message: error.message || "Error al obtener la serie"
@@ -64,10 +63,10 @@ exports.findAll = (req, res) => {
 }
 
 exports.getSerieFile = (req, res) => {
-    const serieRoute = './assets/series/' + req.params.nameSong;
-    fs.exists(songRoute, (exist) => {
+    const serieRoute = './assets/series/' + req.params.image;
+    fs.exists(imageRoute, (exist) => {
         if (exist) {
-            res.sendFile(path.resolve(songRoute))
+            res.sendFile(path.resolve(imageRoute))
         } else {
             res.status(404).send({
                 message: "El archivo no existe"
@@ -76,14 +75,14 @@ exports.getSerieFile = (req, res) => {
     })
 }
 
-exports.getTotalCaps = (req, res) => {
+exports.getTotalSeries = (req, res) => {
     Serie.countDocuments().then(count => {
         res.status(200).send({
             total: count
         })
     }).catch(error => {
         res.status(500).send({
-            message: error.message || "error al obtener el capitulo"
+            message: error.message || "error al obtener las series"
         })
     })
 }

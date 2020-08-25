@@ -2,12 +2,13 @@
     <h1> Lista de canciones</h1>
 
     <div class="container">
-        <input aria-label="Search" type="search" placeholder="Buscar canción" class="form-control" (keyup)="loadSongs(page)" [(ngModel)]="search">
+        <input aria-label="Search" type="search" placeholder="Buscar canción" class="form-control"
+            (keyup)="loadSongs(page)" [(ngModel)]="search">
         <div class="row mt-5">
             <div class="col">
                 <div class="row mb-2" *ngFor="let song of songs">
                     <div class="col">
-                        {{song.name}}
+                        {{song.capName}}
                     </div>
                     <div class="col">
                         <input type="hidden" id="{{song.number}}" value="{{song.file}}" />
