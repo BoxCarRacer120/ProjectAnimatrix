@@ -47,7 +47,7 @@ export class MySongsComponent implements OnInit {
 
   changeSong(song, numberSong = '') {
     const audio: HTMLMediaElement = document.getElementById('player') as HTMLMediaElement;
-
+    console.log(audio);
     if (numberSong == '') {
 
       let dataSong: any = audio.getAttribute('data-song');
@@ -66,6 +66,7 @@ export class MySongsComponent implements OnInit {
       numberSong = dataSong;
 
       const nextPrevious = document.getElementById(dataSong) as HTMLMediaElement;
+      console.log(nextPrevious.getAttribute('value'), "-----------------------------");
       song = nextPrevious.getAttribute('value')
     }
 
