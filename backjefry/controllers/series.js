@@ -64,9 +64,9 @@ exports.findAll = (req, res) => {
 
 exports.getSerieFile = (req, res) => {
     const serieRoute = './assets/series/' + req.params.image;
-    fs.exists(imageRoute, (exist) => {
+    fs.exists(serieRoute, (exist) => {
         if (exist) {
-            res.sendFile(path.resolve(imageRoute))
+            res.sendFile(path.resolve(serieRoute))
         } else {
             res.status(404).send({
                 message: "El archivo no existe"
