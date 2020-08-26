@@ -10,6 +10,8 @@ app.use(bodyParser.json())
 //Rutas
 const user_routes = require('./routes/user')
 const song_routes = require('./routes/song')
+const serie_routes = require('./routes/serie')
+
 
 
 
@@ -18,7 +20,7 @@ const song_routes = require('./routes/song')
 //middleware
 app.use('/api', user_routes)
 app.use('/api', song_routes)
-
+app.use('/api', serie_routes)
 
 // app.get('/pruebas', (req, res) =>{
 //     res.status(200).send({message: 'Está conectada nuestra API'})

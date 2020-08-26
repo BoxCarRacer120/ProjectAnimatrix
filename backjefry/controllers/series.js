@@ -18,7 +18,7 @@ function verificarDatos(req, res) {
 
 
 function obtenerImagen(req) {
-    let routeFile = req.files.file.path //Obtenemos la ruta del archivo
+    let routeFile = req.files.image.path //Obtenemos la ruta del archivo
     let splitFile = routeFile.split('\\')
     return splitFile[splitFile.length - 1]
 }
@@ -29,7 +29,7 @@ exports.create = (req, res) => {
 
     Serie.countDocuments().then(count => {
         const serie = new Serie({
-            seriesId: count + 1,
+            serieId: (count + 1),
             sinopsis: req.body.sinopsis,
             name: req.body.name,
             image: obtenerImagen(req),
