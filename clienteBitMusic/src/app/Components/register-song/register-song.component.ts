@@ -32,7 +32,7 @@ export class RegisterSongComponent implements OnInit {
 
   validateForm() {
     this.capForm = this.formBuilder.group({
-      seriesId: ['', Validators.required],
+      // seriesId: ['', Validators.required],
       capName: ['', Validators.required],
       capNumber: ['', Validators.required],
       duration: ['', Validators.required],
@@ -45,7 +45,7 @@ export class RegisterSongComponent implements OnInit {
 
       const cap = this.capForm.value;
       const formatoCap = cap.file.split('\\')[2].split('\.')[1].toLowerCase()
-      console.log("formato------>", formatoCap);
+
 
       const formData = new FormData();
       formData.append('capName', cap.capName);
@@ -61,7 +61,7 @@ export class RegisterSongComponent implements OnInit {
             this.route.navigate(['/misCanciones']);//Redireccionar a otro componente.
           },
           (error) => {
-            console.log("aqui llego")
+
             console.error("Error al crear la canción", error)
           }
         );

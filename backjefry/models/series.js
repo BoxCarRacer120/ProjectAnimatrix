@@ -10,7 +10,6 @@ const SerieSchema = Schema({
     precluela: String,
     secuela: String,
     image: { type: String, required: true },
-    serieId: { type: Number, required: true },
     numeroCapitulos: Number,
 })
 

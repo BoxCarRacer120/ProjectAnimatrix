@@ -29,7 +29,6 @@ exports.create = (req, res) => {
 
     Serie.countDocuments().then(count => {
         const serie = new Serie({
-            serieId: (count + 1),
             sinopsis: req.body.sinopsis,
             name: req.body.name,
             image: obtenerImagen(req),

@@ -34,95 +34,40 @@ function obtenerNombreCancion(req) {
 exports.create = (req, res) => {
 
     verificarDatos(req, res)
+    const reqBody = req.body
+    const idSerie = req.params.idSerie
+    console.log(idSerie, "ID SERIE-------------------");
 
-    Cap.countDocuments().then(count => {
-        const cap = new Cap({
-            seriesId: req.body.seriesId,
-            capNumber: req.body.capNumber,
-            capName: req.body.capName,
-            duration: req.body.duration,
-            file: obtenerNombreCancion(req),
-        })
+    const cap = new Cap()
 
-        cap.save().then(data => {
-            res.send(data)
 
-        }).catch(err => {
-            res.status(500).send({
-                message: err.message || 'Error al subir capitulo'
-            })
+    cap.seriesId = idSerie
+    cap.capNumber = req.body.capNumber
+    cap.capName = req.body.capName
+    cap.duration = req.body.duration
+    cap.file = obtenerNombreCancion(req)
+
+
+    cap.save().then(data => {
+        res.send(data)
+
+    }).catch(err => {
+        res.status(500).send({
+            message: err.message || 'Error al subir capitulo'
         })
     })
+
 }
 
-/**
- * Función creada para actualizar las canciones almacenadas en nuestra base de datos.
- * @param {*} req => Requerir los parametros que enviamos en la solicitud: Postman, Angular.
- * @param {*} res => Respuesta que vamos a retornar.
- */
-/* exports.update = (req, res) => {
-    verificarDatos(req, res)
 
-    const cap = {
-            name: req.body.name,
-            duration: req.body.duration,
-            file: obtenerNombreCancion(req)
-        }
-        /**
-         * Parametros de findByIdAndUpdate:
-         * Primer parametro: El id del objeto a modificar.
-         * Segundo parametros: Datos a modificar.
-         *//*
-
-Song.findByIdAndUpdate(req.params.idSong, song, { new: true }).then(song => {
-if (!song) {
-return res.status(404).send({
-message: "No se encontró la canción"
-})
-}
-res.send(song)
-}).catch(error => {
-if (error.kind == 'ObjectId') {
-return res.status(404).send({
-message: "No se encontró la canción"
-})
-}
-return res.status(500).send({
-message: "Error al actualizar la canción " + error
-})
-})
-
-} */
-
-/**
- * Función creada para obtener todas la canciones
- * @param {*} req 
- * @param {*} res 
- */
 exports.findAll = (req, res) => {
     let page = ((req.params.page - 1) * 10)
-    //Mostrar solo algunos campos se puede hacer así:
-    //'name duration' -> Se separa por espacios
-    //['name', 'duration'] -> Cada campo es un elemento del arreglo
-
-    /** Expresiones Regulares  */
-    //i => Sin importar que los datos estén en mayúscula o minúscula los encontrará.
-    //g => Global
-
-    //`.*${req.params.name}.*` => Sin importar donde esté el patrón el va a mostrar todas las coincidencias
-    //`^${req.params.name}.*` => Especificamos que debe empezar por el patrón.
-    //`${req.params.name}$` => Especificamos que debe terminar por el patrón
-    //`.${req.params.name}` => Va a encontrar todas las coincidencias menos la canciones que empiezan con ese patrón
-
-    /** RUTAS DINAMICAS */
-    /** En la url se escriben así: ?searchBy=qui
-     * donde searchBy => El nombre del parametro
-     * qui => El valor del parametro.
-     */
 
     let name = new RegExp(`.*${req.query.searchBy || ''}.*`, 'i')
 
     Cap.find({ capName: name }, null, { skip: page, limit: 10 })
+        .populate("seriesId")
+        .exec()
         .then(caps => {
             res.send(caps)
         }).catch(error => {
