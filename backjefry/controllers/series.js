@@ -1,4 +1,6 @@
 const Serie = require('../models/series')
+const Cap = require('../models/caps')
+
 
 let fs = require('fs');
 const path = require('path')
@@ -59,6 +61,38 @@ exports.findAll = (req, res) => {
                 message: error.message || "Error al obtener la serie"
             })
         })
+}
+
+exports.findOne = (req, res) => {
+    const idSerie = req.params.idSerie
+
+    Serie.findById(idSerie, (err, serie) => {
+        if (err) {
+            console.log("nosirve");
+        } else {
+            if (!serie) {
+                console.log("no llego la serie");
+            } else {
+                res.status(200).send({
+                    serie
+                })
+                // Cap.find({ seriesId: idSerie }, (err, caps) => {
+                //     if (err) {
+                //         console.log(err);
+                //     } else {
+                //         if (!caps) {
+                //             console.log("No hay capitulos de esta serie");
+                //         } else {
+                //             res.status(200).send({
+                //                 caps
+                //             })
+                //         }
+                //     }
+                // })
+
+            }
+        }
+    })
 }
 
 exports.getSerieFile = (req, res) => {

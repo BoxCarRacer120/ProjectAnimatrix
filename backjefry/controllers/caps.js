@@ -77,6 +77,26 @@ exports.findAll = (req, res) => {
         })
 }
 
+exports.getCapsSerie = (req,res) =>{
+
+    const idSerie = req.params.idSerie
+
+    Cap.find({ seriesId: idSerie }, (err, caps) => {
+        if (err) {
+            console.log(err);
+        } else {
+            if (!caps) {
+                console.log("No hay capitulos de esta serie");
+            } else {
+                res.status(200).send({
+                    caps
+                })
+            }
+        }
+    })
+
+}
+
 exports.getCapFile = (req, res) => {
     const capsRoute = './assets/caps/' + req.params.nameCap;
     fs.exists(capsRoute, (exist) => {
