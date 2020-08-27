@@ -24,8 +24,8 @@ export class CapService {
     }
   }
 
-  createCap(formData) {
-    return this.http.post<Cap>(`${this.apiURL}/create-song`, formData);
+  createCap(formData, serieId) {
+    return this.http.post<Cap>(`${this.apiURL}/create-song/${serieId}`, formData);
   }
 
   getCaps(filter, page) {

@@ -1,8 +1,8 @@
 import { CapService } from '../services/cap.service';
 
-export interface Cap{
+export interface Cap {
     seriesId: Number;
-    //capNumber: Number;
+    capNumber: Number;
     capName: String;
     duration: String;
     file: File;

@@ -17,6 +17,7 @@ export class RegisterSongComponent implements OnInit {
 
   capForm: FormGroup;
   public file: File;
+  public localId: String;
   constructor(
     private formBuilder: FormBuilder,
     private capService: CapService,
@@ -28,11 +29,11 @@ export class RegisterSongComponent implements OnInit {
 
   /** Nos permite cargar tareas pesadas. */
   ngOnInit(): void {
+    this.obtenerLocal()
   }
 
   validateForm() {
     this.capForm = this.formBuilder.group({
-      // seriesId: ['', Validators.required],
       capName: ['', Validators.required],
       capNumber: ['', Validators.required],
       duration: ['', Validators.required],
@@ -53,11 +54,10 @@ export class RegisterSongComponent implements OnInit {
       formData.append('capNumber', cap.capNumber);
 
       formData.append('file', this.file);
-      formData.append('seriesId', cap.seriesId);
       if (formatoCap == "mp4" || formatoCap == "avi") {
-        this.capService.createCap(formData).subscribe(
+        this.capService.createCap(formData, this.localId).subscribe(
           (createdSong) => {
-            swal('Canción creada', "", 'success'); //Mostrar mensajes con sweetalert
+            swal('Capitulo creado', "", 'success'); //Mostrar mensajes con sweetalert
             this.route.navigate(['/misCanciones']);//Redireccionar a otro componente.
           },
           (error) => {
@@ -78,6 +78,10 @@ export class RegisterSongComponent implements OnInit {
   prepareCap(event: any) {
     this.file = <File>event.target.files[0];
   }
+  obtenerLocal() {
 
+    return this.localId = localStorage.getItem('seriesId')
+
+  }
 
 }
