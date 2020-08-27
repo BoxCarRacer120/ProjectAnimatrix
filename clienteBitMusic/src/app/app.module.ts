@@ -17,6 +17,8 @@ import { LoginComponent } from './Components/login/login.component';
 
 import { AuthGuard } from './guards/auth.guard';
 import { ActualizarUserComponent } from './Components/actualizar-user/actualizar-user.component';
+import { ListarSeriesComponent } from './Components/listar-series/listar-series.component';
+import { CrearSerieComponent } from './Components/crear-serie/crear-serie.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -42,6 +44,8 @@ const appRoutes: Routes = [
     CreateUserComponent,
     LoginComponent,
     ActualizarUserComponent,
+    ListarSeriesComponent,
+    CrearSerieComponent,
   
   ],
   imports: [

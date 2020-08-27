@@ -2,21 +2,23 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../models/User';
 import { BehaviorSubject } from 'rxjs';
+import { GLOBAL } from './global'
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-
+  
   private authenticate = new BehaviorSubject<{}>(null); //Creamos una nueva instancia de la variable pra poder utilizarla. <{}> => tipo de dato (null)=> Valor inicial
   authenticate$ = this.authenticate.asObservable();//Esta variable está suscrita, esto quiere decir que podrá estar escuchando todos los cambios que tenga
 
-  apiURL = 'http://localhost:3000/api';
+  public apiURL :string;
 
   constructor(
     private http: HttpClient
   ) {
     this.authenticate.next(this.infoUser()) //Validamos si el usuario inició sesión, esto nos funcionará son importar que recarguemos el navegador,
+    this.apiURL=GLOBAL.url
   }
 
   createUser(formUser) {
