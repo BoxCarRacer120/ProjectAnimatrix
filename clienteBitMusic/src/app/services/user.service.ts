@@ -19,11 +19,16 @@ export class UserService {
     this.authenticate.next(this.infoUser()) //Validamos si el usuario inició sesión, esto nos funcionará son importar que recarguemos el navegador,
   }
 
-  createUser(formUser){
+  createUser(formUser) {
     return this.http.post<User>(`${this.apiURL}/register`, formUser);
   }
 
-  login(formLogin){
+  updateUser(formUser, idUser) {
+    return this.http.put<User>(`${this.apiURL}/update/${idUser}`, formUser);
+  }
+
+
+  login(formLogin) {
     return this.http.post<User>(`${this.apiURL}/login`, formLogin);
   }
 
@@ -31,7 +36,7 @@ export class UserService {
    * Metodo para almacenar el token de cuando el usuario hacen login
    * @param token 
    */
-  saveToken(token){
+  saveToken(token) {
     localStorage.setItem('token', token);
     this.authenticate.next(this.infoUser())
   }
@@ -39,7 +44,7 @@ export class UserService {
   /**
    * Obtener el token.
    */
-  getToken(){
+  getToken() {
     return localStorage.getItem('token');
   }
 
@@ -47,7 +52,7 @@ export class UserService {
    * Función para validar si existe o no un token
    * @returns Boolean true o false
    */
-  isAuthenticated(){
+  isAuthenticated() {
     /*if (this.getToken() !== null){
       return true;
     }else{
@@ -56,9 +61,9 @@ export class UserService {
     return this.getToken() !== null;
   }
 
-  infoUser(){
+  infoUser() {
     const token = this.getToken();
-    if(!token){
+    if (!token) {
       return null;
     }
     let base64URL = token.split('.')[1];
@@ -67,13 +72,13 @@ export class UserService {
     return JSON.parse(this.b64DeconeUnicode(base64));
   }
 
-  b64DeconeUnicode(str){
-    return decodeURIComponent(atob(str).split('').map( function(c){
+  b64DeconeUnicode(str) {
+    return decodeURIComponent(atob(str).split('').map(function (c) {
       return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-    }  ).join(''));
+    }).join(''));
   }
 
-  removeToken(){
+  removeToken() {
     localStorage.removeItem('token');
     this.authenticate.next(null)
   }

@@ -16,6 +16,7 @@ import { CreateUserComponent } from './Components/create-user/create-user.compon
 import { LoginComponent } from './Components/login/login.component';
 
 import { AuthGuard } from './guards/auth.guard';
+import { ActualizarUserComponent } from './Components/actualizar-user/actualizar-user.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -23,6 +24,8 @@ const appRoutes: Routes = [
   { path: 'misCanciones', canActivate: [AuthGuard], component: MySongsComponent },
   { path: 'registrarUsuario', component: CreateUserComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'actualizarUser', component: ActualizarUserComponent },
+
   { path: '**', component: PageNotFoundComponent }//Ruta para cuando no encontramos una página
 ]
 
@@ -37,7 +40,9 @@ const appRoutes: Routes = [
     PageNotFoundComponent,
     MySongsComponent,
     CreateUserComponent,
-    LoginComponent
+    LoginComponent,
+    ActualizarUserComponent,
+  
   ],
   imports: [
     BrowserModule,

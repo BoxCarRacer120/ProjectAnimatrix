@@ -31,7 +31,7 @@ function create(req, res) {
             if (err) {
                 console.log(err)
             } else {
-                bcrypt.hash(params.password, salt, null, function(err, hash) {
+                bcrypt.hash(params.password, salt, null, function (err, hash) {
                     user.password = hash
                     if (user.firstName != null && user.lastname != null && user.email != null) {
                         User.findOne({ email: user.email }, (err, userEmail) => {
@@ -78,7 +78,7 @@ function login(req, res) {
             if (!user) {
                 res.status(404).send({ message: 'El usuario no existe' })
             } else {
-                bcrypt.compare(pass, user.password, function(err, check) {
+                bcrypt.compare(pass, user.password, function (err, check) {
                     if (check) {
                         if (params.gethash) {
                             res.status(200).send({
@@ -101,8 +101,17 @@ function update(req, res) {
     const userId = req.params.id
     let paramsBody = req.body
 
+    if (req.files.image) {
+        let routeImage = req.files.image.path;
+        let splitImage = routeImage.split('\\');
+        /**
+         * ['/uplopad', 'image', 'nombreArchivo']
+         */
+        paramsBody.image = splitImage[splitImage.length - 1];
+    }
+
     if (paramsBody.password) {
-        bcrypt.hash(paramsBody.password, null, null, function(err, hash) {
+        bcrypt.hash(paramsBody.password, null, null, function (err, hash) {
             paramsBody.password = hash
             console.log(paramsBody.password)
             User.findByIdAndUpdate(userId, paramsBody, (err, userUpdated) => {
@@ -118,14 +127,15 @@ function update(req, res) {
             })
         })
     } else {
-        User.findByIdAndUpdate(userId, paramsBody, (err, userUpdated) => {
+        //{ new: true } => Permite obtener los datos actualizados del usuario.
+        User.findByIdAndUpdate(userId, paramsBody, { new: true }, (err, userUpdated) => {
             if (err) {
                 res.status(500).send({ message: 'Error al actualizar usuario' })
             } else {
                 if (!userUpdated) {
                     res.status(404).send({ message: 'No se ha podido actualizar el usuario' })
                 } else {
-                    res.status(404).send({ user: userUpdated })
+                    res.status(200).send({ token: jwt.userToken(userUpdated) })
                 }
             }
         })
@@ -177,7 +187,7 @@ function getImg(req, res) {
 
     const imgRoute = `./assets/users/${imgUser}`
 
-    fs.exists(imgRoute, function(exists) {
+    fs.exists(imgRoute, function (exists) {
         if (exists) {
             res.sendFile(path.resolve(imgRoute))
         } else {
