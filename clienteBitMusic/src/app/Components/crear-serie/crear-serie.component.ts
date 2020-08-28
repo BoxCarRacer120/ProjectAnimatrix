@@ -18,9 +18,12 @@ export class CrearSerieComponent implements OnInit {
     private serieService: SeriesService,
     private routeParams: ActivatedRoute, //Lo vamos a utilizar para obtener los parametros de la url.
     private route: Router //Para generar redirecciones
-  ) { }
+  ) {
+
+  }
 
   ngOnInit(): void {
+    this.validateForm()
   }
   validateForm() {
     this.serieForm = this.formBuilder.group({
@@ -31,13 +34,13 @@ export class CrearSerieComponent implements OnInit {
       precluela: ['', Validators.required],
       secuela: ['', Validators.required],
       numeroCapitulos: ['', Validators.required],
-      image: [null, Validators.required],
+      file: [null, Validators.required],
     })
 
   }
   registerSerie() {
     if (this.serieForm.valid) {
-
+     
       const serie = this.serieForm.value;
       const formatoSerie = serie.file.split('\\')[2].split('\.')[1].toLowerCase()
 
@@ -70,6 +73,10 @@ export class CrearSerieComponent implements OnInit {
       //alert("Error, debes llenar todos los campos")
       swal('Error', "Error, debes llenar todos los campos", 'error');
     }
+
+  }
+  prepareCap(event: any) {
+    this.file = <File>event.target.files[0];
 
   }
 }

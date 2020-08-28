@@ -66,7 +66,6 @@ export class MySongsComponent implements OnInit {
       numberSong = dataSong;
 
       const nextPrevious = document.getElementById(dataSong) as HTMLMediaElement;
-      console.log(nextPrevious.getAttribute('value'), "-----------------------------");
       song = nextPrevious.getAttribute('value')
     }
 
@@ -78,12 +77,11 @@ export class MySongsComponent implements OnInit {
   }
 
   getTotalSongs() {
-    // console.log(this.songService.getTotalCaps(), "----------------------------------<");
+    
     this.capService.getTotalCaps().subscribe((totAllSongs: any) => {
       let tabs = Math.ceil(totAllSongs.total / 10);
       this.totalTabs = Array.apply(null, new Array(tabs)).map((e, i) => ++i);
-      //let array = new Array(tabs);
-      //console.log("array --> ", array)
+
     })
   }
 

@@ -80,7 +80,7 @@ export class RegisterSongComponent implements OnInit {
   }
   obtenerLocal() {
 
-    return this.localId = localStorage.getItem('seriesId')
+    return this.localId = localStorage.getItem('idSerieStorage')
 
   }
 

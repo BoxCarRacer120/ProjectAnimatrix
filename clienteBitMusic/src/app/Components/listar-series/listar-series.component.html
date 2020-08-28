@@ -1,1 +1,13 @@
-<p>listar-series works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col-3" *ngFor="let serie of series">
+            <div class="card" style="width: 18rem;">
+                <img src="{{apiURL+'/getSerieFile/'+this.serie.image}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 (click)="guardarIdserieLocal(this.serie._id)" class="card-title">{{serie.name}} </h5>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

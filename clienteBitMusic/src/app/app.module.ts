@@ -22,11 +22,15 @@ import { CrearSerieComponent } from './Components/crear-serie/crear-serie.compon
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'registrarCancion', canActivate: [AuthGuard],  component: RegisterSongComponent },
+  { path: 'registrarCancion', canActivate: [AuthGuard], component: RegisterSongComponent },
   { path: 'misCanciones', canActivate: [AuthGuard], component: MySongsComponent },
   { path: 'registrarUsuario', component: CreateUserComponent },
+  { path: 'directorioSeries', component: ListarSeriesComponent },
+
   { path: 'login', component: LoginComponent },
   { path: 'actualizarUser', component: ActualizarUserComponent },
+  { path: 'crearSerie', component: CrearSerieComponent },
+
 
   { path: '**', component: PageNotFoundComponent }//Ruta para cuando no encontramos una página
 ]
@@ -46,7 +50,7 @@ const appRoutes: Routes = [
     ActualizarUserComponent,
     ListarSeriesComponent,
     CrearSerieComponent,
-  
+
   ],
   imports: [
     BrowserModule,
