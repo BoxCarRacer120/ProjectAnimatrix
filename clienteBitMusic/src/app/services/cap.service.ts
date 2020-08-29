@@ -31,8 +31,7 @@ export class CapService {
   }
 
   getCaps(filter, page) {
-    console.log('Esta es la ruta de page --> ', `${page}`)
-    return this.http.get(`${this.apiURL}/getAll/${page}${filter}`, this.prepareHeaders())
+    return this.http.get(`${this.apiURL}/getAll/${page}/${filter}`, this.prepareHeaders())
 
   }
 

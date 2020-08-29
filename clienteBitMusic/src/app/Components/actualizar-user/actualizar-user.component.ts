@@ -9,6 +9,7 @@ const swal = require('sweetalert');
   styleUrls: ['./actualizar-user.component.css']
 })
 export class ActualizarUserComponent implements OnInit {
+  
   user;
   image: File;
   userForm: FormGroup;

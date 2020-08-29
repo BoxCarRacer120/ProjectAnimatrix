@@ -62,10 +62,9 @@ exports.create = (req, res) => {
 
 exports.findAll = (req, res) => {
     let page = ((req.params.page - 1) * 10)
+    let idSerie = req.params.idSerie
 
-    let name = new RegExp(`.*${req.query.searchBy || ''}.*`, 'i')
-
-    Cap.find({ capName: name }, null, { skip: page, limit: 10 })
+    Cap.find({seriesId:idSerie}, null, { skip: page, limit: 10 })
         .populate("seriesId")
         .exec()
         .then(caps => {
@@ -77,7 +76,7 @@ exports.findAll = (req, res) => {
         })
 }
 
-exports.getCapsSerie = (req,res) =>{
+exports.getCapsSerie = (req, res) => {
 
     const idSerie = req.params.idSerie
 

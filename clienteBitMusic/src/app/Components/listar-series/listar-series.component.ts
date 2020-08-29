@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SeriesService } from '../../services/series.service';
+import { UserService } from '../../services/user.service';
+
 
 @Component({
   selector: 'app-listar-series',
@@ -7,6 +9,8 @@ import { SeriesService } from '../../services/series.service';
   styleUrls: ['./listar-series.component.css']
 })
 export class ListarSeriesComponent implements OnInit {
+  role
+  user
   idSerie: String;
   series: Array<any>;
   apiURL: String;
@@ -16,9 +20,13 @@ export class ListarSeriesComponent implements OnInit {
   totalTabs: Array<any>;
 
   constructor(
-    private SeriesService: SeriesService
+    private SeriesService: SeriesService,
+    private userService: UserService
   ) {
     this.apiURL = this.SeriesService.apiURL
+    this.user = this.userService.infoUser();
+    this.role = this.user.role
+    console.log(this.role);
   }
 
   ngOnInit(): void {
@@ -30,22 +38,16 @@ export class ListarSeriesComponent implements OnInit {
     if (typeof this.search == "string" && this.search.length > 0) {
       filter = `?searchBy=${this.search}`
     }
-
-
-
+    
     this.SeriesService.getSeries(filter, page).subscribe(
       (allSeries: Array<any>) => {
         this.totSeries = allSeries.length
         this.series = allSeries
-        console.log(this.series, "SERIES-------------------");
 
       }
     )
   }
 
-  getSerieImage() {
-
-  }
 
   getTotalSongs() {
 
@@ -57,7 +59,6 @@ export class ListarSeriesComponent implements OnInit {
   }
   guardarIdserieLocal(serieId) {
     localStorage.setItem('idSerieStorage', serieId)
-    alert('guardado en storage')
   }
 
 }

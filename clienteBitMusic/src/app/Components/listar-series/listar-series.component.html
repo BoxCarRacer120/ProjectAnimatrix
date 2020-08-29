@@ -1,10 +1,21 @@
 <div class="container">
     <div class="row">
-        <div class="col-3" *ngFor="let serie of series">
-            <div class="card" style="width: 18rem;">
-                <img src="{{apiURL+'/getSerieFile/'+this.serie.image}}" class="card-img-top" alt="...">
+        <input aria-label="Search" type="search" placeholder="Buscar canción" class="form-control"
+            (keyup)="getSeries(page)" [(ngModel)]="search">
+        <div class="col-3 mb-4 " *ngFor="let serie of series">
+            <div class="card " style="width: 18rem;">
+                <img src="{{apiURL+'/getSerieFile/'+this.serie.image}}" (click)="guardarIdserieLocal(this.serie._id)"
+                    class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 (click)="guardarIdserieLocal(this.serie._id)" class="card-title">{{serie.name}} </h5>
+                </div>
+                <div class="btns d-flex justify-content-around">
+                    <button *ngIf="this.user.role =='ROLE_ADMIN'" routerLink="/registrarCancion" type="button"
+                        class="btn btn-dark mb-3" (click)="guardarIdserieLocal(this.serie._id)">Cargar
+                        capitulo</button>
+                    <button type="button" class="btn btn-dark mb-3" routerLink="/misCanciones"
+                        (click)="guardarIdserieLocal(this.serie._id)">Ver
+                    </button>
                 </div>
             </div>
         </div>
