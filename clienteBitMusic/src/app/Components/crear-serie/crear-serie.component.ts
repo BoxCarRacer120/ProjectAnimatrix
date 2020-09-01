@@ -40,7 +40,7 @@ export class CrearSerieComponent implements OnInit {
   }
   registerSerie() {
     if (this.serieForm.valid) {
-     
+
       const serie = this.serieForm.value;
       const formatoSerie = serie.file.split('\\')[2].split('\.')[1].toLowerCase()
 

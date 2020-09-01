@@ -1,0 +1,64 @@
+
+.container-btn{
+    height: 100vh;
+}
+
+.btn-big1{
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    height: 250px;
+    border-radius: 50px;
+background: #313940;
+box-shadow:  20px 20px 60px #2a3036, 
+             -20px -20px 60px #38424a;
+}
+.btn-big1:hover{
+    border-radius: 50px;
+background: #313940;
+box-shadow: inset 20px 20px 60px #2a3036, 
+            inset -20px -20px 60px #38424a;
+}
+.btn-big2{
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    height: 250px;
+    border-radius: 50px;
+background: #313940;
+box-shadow:  -20px 20px 60px #2a3036, 
+             20px -20px 60px #38424a;
+}
+.btn-big2:hover{
+    border-radius: 50px;
+background: #313940;
+box-shadow: inset -20px 20px 60px #2a3036, 
+            inset 20px -20px 60px #38424a;
+}
+.btn-big2:hover path {
+    fill: #F2137B;
+    transition: fill 0.3s ease-in-out;
+    
+}
+.btn-big1:hover path{
+    fill: #F2137B !important;
+    transition: fill 0.3s ease-in-out;
+
+}
+
+.texto{
+    font-family: 'Fira Sans Condensed', sans-serif;
+    color: white;
+    font-size: 25px;
+    text-align: center;
+    letter-spacing: 2px;
+    font-weight: 300 !important;
+    transform: translateY(75%);
+    
+}

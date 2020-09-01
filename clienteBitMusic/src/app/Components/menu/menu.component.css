@@ -1,0 +1,17 @@
+.navegador {
+    background: transparent !important;
+}
+.sombra-link{
+    padding: 20px 30px !important;
+    border-radius: 16px;
+background: linear-gradient(315deg, #2c333a, #343d44);
+box-shadow:  -9px -9px 19px #272d33, 
+             9px 9px 19px #3b454d;
+            color: white !important;
+            transition: all 0.3s ease-in-out;
+}
+ul li a {
+    font-family: 'Fira Sans Condensed', sans-serif;
+    font-weight: 300;
+    color: white;
+}
