@@ -1,6 +1,6 @@
-<div class="container contenedor d-flex justify-content-center ">
+<div *ngIf="!user" class="container contenedor d-flex justify-content-center ">
     <div class="col-8 container-btn row justify-content-around align-items-center">
-        <div class="btn-big1">
+        <div routerLink="/registrarUsuario" class="btn-big1">
             <svg height="80" width="80" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
                 xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512"
                 style="enable-background:new 0 0 512 512;" xml:space="preserve">
@@ -21,7 +21,7 @@
 
             <p class="texto">Registro</p>
         </div>
-        <div class="btn-big2 ">
+        <div routerLink="/login" class="btn-big2 ">
             <svg id="Solid" height="80" viewBox="0 0 512 512" width="80" xmlns="http://www.w3.org/2000/svg">
                 <path fill="#BF1564"
                     d="m464 488h-352a24 24 0 0 1 -24-24v-96a24 24 0 0 1 48 0v72h304v-368h-304v72a24 24 0 0 1 -48 0v-96a24 24 0 0 1 24-24h352a24 24 0 0 1 24 24v416a24 24 0 0 1 -24 24zm-178.667-232-32-24h-205.333a24 24 0 0 0 0 48h205.333zm-46.933 115.2 128-96a24 24 0 0 0 0-38.4l-128-96a24 24 0 0 0 -28.8 38.4l102.4 76.8-102.4 76.8a24 24 0 1 0 28.8 38.4z" />

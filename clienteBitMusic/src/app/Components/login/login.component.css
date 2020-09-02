@@ -1,0 +1,30 @@
+/* .row{
+    width: 60%;
+    padding: 35px 0;
+    border-radius: 53px;
+background: #313940;
+box-shadow:  -27px -27px 54px #242a2f, 
+             27px 27px 54px #3e4851;
+} */
+.container{
+    font-family: 'Fira Sans Condensed', sans-serif !important;
+    height: 100%;
+}
+.formulario{
+    width: 35%; 
+}
+.btn-login {
+    width: 100%; 
+    background: #F2137B;
+    border:none;
+}
+.btn-login:hover{
+    
+    background: #F2137B;
+    box-shadow: inset 9px 9px 19px #b30e5b, 
+                inset -9px -9px 19px #b30e5b;
+
+}
+.titulo-login{
+    color: white;
+}

@@ -8,14 +8,20 @@ import { UserService } from '../../services/user.service';
 })
 export class HomeComponent implements OnInit {
   user
-  role
+  // role
 
   constructor(
     private userService: UserService
   ) {
-    this.user = this.userService.infoUser();
-    this.role = this.user.role
-   }
+    // this.user = this.userService.infoUser();
+    // this.role = this.user.role
+    this.userService.authenticate$.subscribe(
+      userAuth => {
+        console.log("userAuth --> ", userAuth);
+        this.user = userAuth
+      }
+    )
+  }
 
   ngOnInit(): void {
   }
