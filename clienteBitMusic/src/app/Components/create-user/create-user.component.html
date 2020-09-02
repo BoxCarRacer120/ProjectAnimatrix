@@ -1,32 +1,34 @@
-<div class="container">
-    <h1> Registrar usuario </h1>
-    <form [formGroup]="userForm" (ngSubmit)="registerUser()">
-        <div class="form-group">
-            <label for="firstName"> Nombre </label>
-            <input id="firstName" name="firstName" formControlName="firstName" type="text" class="form-control" />
-        </div>
-
-        <div class="form-group">
-            <label for="lastname"> Apellido </label>
-            <input id="lastname" name="lastname" formControlName="lastname" type="text" class="form-control" />
-        </div>
-
-        <div class="form-group">
-            <label for="email"> Email </label>
-            <input id="email" name="email" formControlName="email" type="email" class="form-control" />
-        </div>
-
-        <div class="form-group">
-            <label for="password"> Contraseña </label>
-            <input id="password" name="password" formControlName="password" type="password" class="form-control" />
-        </div>
-
-        <div *ngIf="!userForm.valid">
-            <div class="text-danger">
-                Debes llenar todos los campos
+<div class="container d-flex align-items-center justify-content-center">
+    <div class="row col-12 justify-content-center flex-column align-items-center">
+        <h1 class="titulo-login"> Registrar usuario </h1>
+        <form class="formulario" [formGroup]="userForm" (ngSubmit)="registerUser()">
+            <div class="form-group">
+                <label for="firstName"></label>
+                <input id="firstName" name="firstName" formControlName="firstName" placeholder="Ingrese nombre" type="text" class="form-control" />
             </div>
-        </div>
 
-        <button class="btn btn-info">Enviar</button>
-    </form>
+            <div class="form-group">
+                <label for="lastname"></label>
+                <input id="lastname" name="lastname" formControlName="lastname" placeholder="Ingrese apellido" type="text" class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <label for="email"></label>
+                <input id="email" name="email" formControlName="email" placeholder="Ingrese correo" type="email" class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <label for="password"></label>
+                <input id="password" name="password" formControlName="password"  placeholder="Ingrese contraseña" type="password" class="form-control" />
+            </div>
+
+            <div *ngIf="!userForm.valid">
+                <div class="text-danger ">
+                    Debes llenar todos los campos
+                </div>
+            </div>
+
+            <button class="btn btn-info btn-login mt-2">Enviar</button>
+        </form>
+    </div>
 </div>

@@ -62,3 +62,23 @@ box-shadow: inset -20px 20px 60px #2a3036,
     transform: translateY(75%);
     
 }
+
+/* carrusel */
+.margen{
+    margin-top: 30px !important;
+}
+.height-propio{
+    height: 80vh;
+}
+
+.absoluto{
+    transform: translateY(-250%); 
+    padding: 30px !important;
+    background: rgba(0,0,0,0.4) !important;
+    border-radius: 20px !important;
+    width: 40%;
+    margin: auto;
+}
+.absoluto h5, .absoluto p {
+    text-shadow: 0 0 8px black;
+}

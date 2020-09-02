@@ -1,0 +1,26 @@
+.container{
+    font-family: 'Fira Sans Condensed', sans-serif !important;
+    height: 100%;
+}
+.formulario{
+    width: 35%; 
+}
+.btn-login {
+    width: 100% ; 
+    background: #F2137B ;
+    border:none ;
+    font-size: 18px;
+}
+.btn-login:hover{
+    
+    background: #F2137B;
+    box-shadow: inset 9px 9px 19px #b30e5b, 
+                inset -9px -9px 19px #b30e5b;
+
+}
+.titulo-login{
+    color: white;
+}
+.text-danger {
+    color: #D96A9E !important;
+}
