@@ -53,7 +53,7 @@ exports.findAll = (req, res) => {
 
     let name = new RegExp(`.*${req.query.searchBy || ''}.*`, 'i')
 
-    Serie.find({ name: name }, null, { skip: page, limit: 10 })
+    Serie.find({ name: name }, null, { skip: page, limit: 20 })
         .then(series => {
             res.send(series)
         }).catch(error => {
