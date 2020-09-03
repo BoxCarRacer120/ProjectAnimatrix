@@ -14,6 +14,10 @@ import { PageNotFoundComponent } from './Components/page-not-found/page-not-foun
 import { MySongsComponent } from './Components/my-songs/my-songs.component';
 import { CreateUserComponent } from './Components/create-user/create-user.component';
 import { LoginComponent } from './Components/login/login.component';
+// swiper
+import { SwiperModule } from 'ngx-swiper-wrapper';
+import { SWIPER_CONFIG } from 'ngx-swiper-wrapper';
+import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
 
 import { AuthGuard } from './guards/auth.guard';
 import { ActualizarUserComponent } from './Components/actualizar-user/actualizar-user.component';
@@ -34,6 +38,10 @@ const appRoutes: Routes = [
 
   { path: '**', component: PageNotFoundComponent }//Ruta para cuando no encontramos una página
 ]
+const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
+  direction: 'horizontal',
+  slidesPerView: 3
+};
 
 @NgModule({
   declarations: [
@@ -57,9 +65,13 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    SwiperModule,
   ],
-  providers: [],
+  providers: [{
+    provide: SWIPER_CONFIG,
+    useValue: DEFAULT_SWIPER_CONFIG
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

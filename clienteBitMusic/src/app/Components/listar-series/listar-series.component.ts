@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SeriesService } from '../../services/series.service';
 import { UserService } from '../../services/user.service';
+import { SwiperModule, SwiperConfigInterface } from 'ngx-swiper-wrapper';
 
 
 @Component({
@@ -11,6 +12,7 @@ import { UserService } from '../../services/user.service';
 export class ListarSeriesComponent implements OnInit {
   role
   user
+  index 
   idSerie: String;
   series: Array<any>;
   apiURL: String;
@@ -28,6 +30,31 @@ export class ListarSeriesComponent implements OnInit {
     this.role = this.user.role
     console.log(this.role);
   }
+  config: SwiperConfigInterface = {
+    a11y: true,
+    direction: 'horizontal',
+    slidesPerView: 3,
+    slideToClickedSlide: true,
+    mousewheel: true,
+    scrollbar: false,
+    watchSlidesProgress: true,
+    navigation: true,
+    keyboard: true,
+    initialSlide:1,
+    pagination: false,
+    centeredSlides: true,
+    loop: true,
+    roundLengths: true,
+    slidesOffsetBefore: 100,
+    slidesOffsetAfter: 100,
+    spaceBetween: 10,
+    breakpoints: {
+        // when window width is >= 320px
+        320: {
+            slidesPerView: 3
+        }
+    }
+};
 
   ngOnInit(): void {
     this.getSeries(this.page)
