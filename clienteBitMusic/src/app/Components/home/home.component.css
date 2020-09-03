@@ -82,3 +82,110 @@ box-shadow: inset -20px 20px 60px #2a3036,
 .absoluto h5, .absoluto p {
     text-shadow: 0 0 8px black;
 }
+
+
+
+/*09/02/2020*/
+
+.contenedor{ 
+    max-width: 1800px;
+    margin: auto;
+}
+.link-noticias{
+    position: relative;
+    margin-top: 5.5rem;
+    display: flex;
+    justify-content: center;
+    background-image: url('../../../assets/wallpapers/noticias-anime.jpg');
+    background-position: top;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 100px 0 200px;
+    border-radius: 15px;
+    border: solid rgba(255,255,255,1) 2px;
+    box-shadow: 0px 0px 30px 2px #000000;
+}
+.image-block{
+    display: block;
+}
+
+.ribbon-box {
+    /* position: absolute;
+    top: .75rem;
+    right: 0;
+    padding: 0 .75rem;
+    height: 2rem;
+    line-height: 2rem;
+    z-index: 5;
+    font-weight: 600;
+    border-top-left-radius: .25rem;
+    border-bottom-left-radius: .25rem;
+    right: 15px; */
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    position: absolute;
+}
+.ribbon-box::before,
+.ribbon-box::after {
+  position: absolute;
+  z-index: -1;
+  content: '';
+  display: block;
+  border: 5px solid #2980b9;
+}
+.ribbon-box span {
+    position: absolute;
+    display: block;
+    width: 225px;
+    padding: 15px 0;
+    background-color: #BF1564;
+    box-shadow: 0 5px 10px rgba(0,0,0,.1);
+    color: #fff;
+    font: 700 18px/1 'Lato', sans-serif;
+    text-shadow: 0 1px 1px rgba(0,0,0,.2);
+    text-transform: uppercase;
+    text-align: center;
+
+  }
+  .ribbon-top-left {
+    top: -10px;
+    left: -10px;
+  }
+  .ribbon-top-left::before,
+.ribbon-top-left::after {
+  border-top-color: transparent;
+  border-left-color: transparent;
+}
+.ribbon-top-left::before {
+  top: 0;
+  right: 0;
+}
+.ribbon-top-left::after {
+    bottom: 0;
+    left: 0;
+  }
+  .ribbon-top-left span {
+    right: -25px;
+    top: 30px;
+    transform: rotate(-45deg);
+  }
+  a.block:hover {
+    color: #495057;
+    opacity: .65;
+    transition: all 0.3s ease-out;
+}
+.subtitle{
+    position: absolute;
+    bottom: 1rem;
+    right: 20px;
+}
+/* .ribbon-warning .ribbon-box { 
+    color: #fff;
+    background-color: #BF1564;
+}
+.ribbon-bottom .ribbon-box {
+    top: auto;
+    bottom: .75rem;
+} */
+
