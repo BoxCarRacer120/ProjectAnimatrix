@@ -22,8 +22,8 @@
 
     </div> -->
     <!-- swiper -->
-    <swiper [config]="config" [(index)]="index">
-        <div *ngFor="let serie of series">
+    <swiper [config]="config" [(index)]="index" >
+        <div class="mt-5" *ngFor="let serie of series">
             <div class="card " style="width: 18rem;">
                 <img src="{{apiURL+'/getSerieFile/'+this.serie.image}}" (click)="guardarIdserieLocal(this.serie._id)"
                     class="card-img-top" alt="...">
