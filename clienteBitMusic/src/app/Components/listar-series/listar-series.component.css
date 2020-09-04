@@ -53,3 +53,6 @@ hr{
     color: #BF1564;
     background: #BF1564;
 }
+.swiper-button-next::after,.swiper-button-next {
+    color: var(--swiper-navigation-color,#38ff00) !important;
+    }
