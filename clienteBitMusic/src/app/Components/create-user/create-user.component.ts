@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
 import { UserService } from '../../services/user.service';
+import { Router, ActivatedRoute } from '@angular/router';
+const swal = require('sweetalert');
 
 @Component({
   selector: 'app-create-user',
@@ -12,7 +13,8 @@ export class CreateUserComponent implements OnInit {
   userForm: FormGroup
   constructor(
     private formBuilder: FormBuilder,
-    private userService: UserService
+    private userService: UserService,
+    private route: Router,
   ) {
     this.createValidator();
   }
@@ -39,13 +41,15 @@ export class CreateUserComponent implements OnInit {
     if(this.userForm.valid){
       this.userService.createUser(this.userForm.value).subscribe(
         (createdUser) => {
-          alert("Usuario registrado correctamente")
+          swal('Registro Exítoso', "", 'success');
+          this.route.navigate(['/login'])
+
         },(error) => {
           console.log("error al registrar el usuario", error)
         }
       )
     }else{
-      alert("Debes llenar todos los campos")
+      swal("Diligencia todos los campos", "", 'error');
     }
   }
 
