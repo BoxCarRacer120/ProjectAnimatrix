@@ -17,6 +17,7 @@ box-shadow:  -27px -27px 54px #242a2f,
     width: 100%; 
     background: #F2137B;
     border:none;
+    font-size: 18px;
 }
 .btn-login:hover{
     
@@ -25,6 +26,12 @@ box-shadow:  -27px -27px 54px #242a2f,
                 inset -9px -9px 19px #b30e5b;
 
 }
+.btnregresar{
+    width: 35%;
+}
 .titulo-login{
     color: white;
+}
+.fas{
+    margin-right:1rem;
 }

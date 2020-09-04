@@ -18,6 +18,11 @@
                 inset -9px -9px 19px #b30e5b;
 
 }
+.btnregresar{
+width: 35%;
+
+
+}
 .titulo-login{
     color: white;
 }
