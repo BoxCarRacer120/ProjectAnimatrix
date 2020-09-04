@@ -12,7 +12,7 @@ import { SwiperModule, SwiperConfigInterface } from 'ngx-swiper-wrapper';
 export class ListarSeriesComponent implements OnInit {
   role
   user
-  index 
+  index
   idSerie: String;
   series: Array<any>;
   apiURL: String;
@@ -33,28 +33,28 @@ export class ListarSeriesComponent implements OnInit {
   config: SwiperConfigInterface = {
     a11y: true,
     direction: 'horizontal',
-    slidesPerView: 3,
+    slidesPerView: 2,
     slideToClickedSlide: true,
     mousewheel: true,
     scrollbar: false,
     watchSlidesProgress: true,
     navigation: true,
     keyboard: true,
-    initialSlide:1,
+    initialSlide: 1,
     pagination: false,
     centeredSlides: true,
     loop: true,
     roundLengths: true,
     slidesOffsetBefore: 100,
     slidesOffsetAfter: 100,
-    spaceBetween: 10,
+    spaceBetween: 0,
     breakpoints: {
-        // when window width is >= 320px
-        320: {
-            slidesPerView: 3
-        }
+      // when window width is >= 320px
+      320: {
+        slidesPerView: 2
+      }
     }
-};
+  };
 
   ngOnInit(): void {
     this.getSeries(this.page)
@@ -65,7 +65,7 @@ export class ListarSeriesComponent implements OnInit {
     if (typeof this.search == "string" && this.search.length > 0) {
       filter = `?searchBy=${this.search}`
     }
-    
+
     this.SeriesService.getSeries(filter, page).subscribe(
       (allSeries: Array<any>) => {
         this.totSeries = allSeries.length

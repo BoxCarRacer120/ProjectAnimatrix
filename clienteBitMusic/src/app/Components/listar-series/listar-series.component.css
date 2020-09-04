@@ -1,4 +1,55 @@
-.imgSerie{
-    height: 200px;
-    width: 200px;
+.container{
+    font-family: 'Fira Sans Condensed', sans-serif;
+}
+.card-holder{
+    position: relative;
+}
+.carta {
+    background: #000;
+    transition: all 0.5s ease-in-out;
+}
+.boton-serie{
+    background-color: #BF1564;
+    color: white;
+}
+.contenedor-botones-texto{
+    position: absolute;
+    width: 100%;
+    background: rgba(0,0,0,0.6) !important;
+    bottom: 0px;
+    left: 0px;
+}
+.texto-serie{
+    
+    color: white;
+    
+    padding: 5px 15px;
+    width: 80%;
+}
+.botones-container{
+    width: 100%;
+
+}
+.sinopsis{
+    display: none;
+    transition: all 0.5s ease-in-out;
+}
+.carta:hover .sinopsis{
+    display: block;
+    transition: all 0.5s ease-in-out;
+}
+.carta:hover .card-title{
+    display: block;
+    text-decoration-line: underline;
+    transition: all 0.5s ease-in-out;
+}
+.carrusel{
+    height: 50vh;
+}
+.seccion-serie{
+    color: white;
+}
+hr{
+    color: #BF1564;
+    background: #BF1564;
 }
