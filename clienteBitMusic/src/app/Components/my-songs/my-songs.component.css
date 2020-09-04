@@ -1,3 +1,6 @@
+.container{
+    font-family: 'Fira Sans Condensed', sans-serif;
+}
 .music-icon {
     font-size: 200px;
     color: blueviolet;
@@ -6,4 +9,23 @@
 .icon-player {
     font-size: 30px;
     color: blueviolet;
+}
+hr{
+    color: #bf1564;
+    background: #bf1564;
+    width: 100%;
+}
+.informacion{
+    color: white;
+}
+.cap-container{
+    cursor: pointer;
+    border-right: 2px solid #bf1564;
+    text-align: center;
+    color: white;
+    margin: 0 0 5px 0;
+    
+}
+.cap-container:hover{
+    background-color: #4c5964;
 }

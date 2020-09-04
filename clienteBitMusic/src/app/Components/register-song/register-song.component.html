@@ -1,25 +1,26 @@
-<div class="container">
-    <h2> Subir nuevo episodio </h2>
+<div class="container d-flex align-items-center justify-content-center">
+    <div class="row col-12 justify-content-center flex-column align-items-center">
+        <h2 class="titulo-login">Nuevo capitulo</h2>
 
-    <form [formGroup]="capForm" (ngSubmit)="registerCap()" enctype="multipart/form-data">
+    <form class="formulario" [formGroup]="capForm" (ngSubmit)="registerCap()" enctype="multipart/form-data">
 
 
         <div class="form-group">
-            <label for="capName">Nombre Capitulo</label>
-            <input id="capName" name="capName" formControlName="capName" type="text" class="form-control">
+            <label for="capName"></label>
+            <input id="capName" name="capName" formControlName="capName" type="text" placeholder="Nombre del capitulo" class="form-control">
         </div>
         <div class="form-group">
-            <label for="capNumber">Numero del capitulo</label>
-            <input id="capNumber" name="capNumber" formControlName="capNumber" type="number" class="form-control">
-        </div>
-
-        <div class="form-group">
-            <label for="duration">Duración</label>
-            <input id="duration" name="duration" formControlName="duration" type="text" class="form-control">
+            <label for="capNumber"></label>
+            <input id="capNumber" name="capNumber" formControlName="capNumber" type="number" placeholder="Numero del capitulo" class="form-control">
         </div>
 
         <div class="form-group">
-            <label for="file"> Archivo del capitulo </label>
+            <label for="duration"></label>
+            <input id="duration" name="duration" formControlName="duration" type="text" placeholder="Duracion" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label for="file"></label>
             <input id="file" name="file" formControlName="file" type="file" (change)="prepareCap($event)"
                 class="form-control">
         </div>
@@ -32,8 +33,10 @@
         </div>
 
         <div class="text-center">
-            <button type="submit" class="btn btn-info"> Enviar </button>
+            <button type="submit" class="btn btn-info btn-login mt-2"><i
+                class="fas fa-sign-in-alt"></i>Enviar</button>
         </div>
 
     </form>
+    </div>
 </div>

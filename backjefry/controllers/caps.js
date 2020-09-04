@@ -64,7 +64,7 @@ exports.findAll = (req, res) => {
     let page = ((req.params.page - 1) * 10)
     let idSerie = req.params.idSerie
 
-    Cap.find({seriesId:idSerie}, null, { skip: page, limit: 10 })
+    Cap.find({ seriesId: idSerie }, null, { skip: page, limit: 50 })
         .populate("seriesId")
         .exec()
         .then(caps => {
