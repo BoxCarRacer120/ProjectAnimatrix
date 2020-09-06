@@ -1,8 +1,23 @@
 .container{
     font-family: 'Fira Sans Condensed', sans-serif;
 }
+.row{
+   width: 110%;
+
+}
+.buscador{
+    width: 97%;
+}
 .card-holder{
     position: relative;
+}
+.columna-mia {
+    padding: 0 !important;
+}
+.columna-mia .carta{
+    width: 100%;
+
+
 }
 .carta {
     background: #000;

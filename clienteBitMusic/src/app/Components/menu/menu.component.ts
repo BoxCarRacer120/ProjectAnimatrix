@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router  } from '@angular/router';
+import { Router } from '@angular/router';
 
 import { UserService } from '../../services/user.service';
 
@@ -10,14 +10,18 @@ import { UserService } from '../../services/user.service';
 })
 export class MenuComponent implements OnInit {
   user;
+  apiURL: String;
+
   constructor(
     private userService: UserService,
     private router: Router
   ) {
+    this.apiURL = this.userService.apiURL;
     this.userService.authenticate$.subscribe(
       userAuth => {
         console.log("userAuth --> ", userAuth);
         this.user = userAuth
+        console.log(this.user, "savergaasasasdasdas");
       }
     )
   }
@@ -25,7 +29,7 @@ export class MenuComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  destroySession(){
+  destroySession() {
     this.userService.removeToken();
     this.router.navigate(['/']);
 

@@ -21,26 +21,21 @@
                 <a class="nav-link sombra-link" routerLink="/directorioSeries">Directorio</a>
             </li>
 
-            <li class="nav-item nav-link-item middle ">
+            <!-- <li class="nav-item nav-link-item middle ">
                 <a class="nav-link sombra-link" routerLink="/actualizarUser">Actualizar usuario</a>
-            </li>
+            </li> -->
             <li class="nav-item nav-link-item last ">
                 <a class="nav-link sombra-link" (click)="destroySession()">Cerrar sesión</a>
             </li>
 
         </ul>
-        <span class="form-inline text-white" *ngIf="user;">
-            Hola {{this.user.firstName}}
-        </span>
-        <!-- <ng-template #menuLogin>
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="/registrarUsuario">Registrar usuario</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="/login">Iniciar Sesión</a>
-                </li>
-            </ul>
-        </ng-template> -->
+        <div class="d-flex flex-row">
+            <span routerLink="/actualizarUser" class="form-inline text-white nombre-user" *ngIf="user;"> <i class="fas fa-user-ninja ninja"></i>
+                Hola {{this.user.firstName}}
+            </span>
+            <img routerLink="/actualizarUser" class="mi-carita" src="{{apiURL+'/get-image-user/'+this.user.image}}" width="50" height="50">
+        </div>
+        
+        
     </div>
 </nav>

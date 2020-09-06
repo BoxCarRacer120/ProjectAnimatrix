@@ -34,3 +34,19 @@ ul li a {
     font-weight: 300;
     color: white;
 }
+.ninja{
+    color: #BF1564 ;
+    font-size: 30px;
+    padding-right:7px ;
+}
+.nombre-user{
+    cursor: pointer;
+    font-family: 'Fira Sans Condensed', sans-serif;
+   
+}
+.mi-carita{
+    border-radius: 50%;
+    margin-left: 7px;
+    border: 3px solid #BF1564;
+    cursor: pointer;
+}
