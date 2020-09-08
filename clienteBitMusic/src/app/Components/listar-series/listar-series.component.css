@@ -2,11 +2,13 @@
     font-family: 'Fira Sans Condensed', sans-serif;
 }
 .row{
-   width: 110%;
+   width: 100%;
+   margin-left: 0; margin-right: 0;
 
 }
 .buscador{
     width: 97%;
+    
 }
 .card-holder{
     position: relative;
@@ -72,4 +74,6 @@ hr{
 .swiper-button-next::after,.swiper-button-next {
     color: var(--swiper-navigation-color,#38ff00) !important;
     }
-  
+.carruselDirectorio{
+    width: 40%;
+}
