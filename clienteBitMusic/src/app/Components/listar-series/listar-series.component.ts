@@ -85,9 +85,10 @@ export class ListarSeriesComponent implements OnInit {
 
     })
   }
-  guardarIdserieLocal(serieId, nombreSerie) {
+  guardarIdserieLocal(serieId, nombreSerie, sinopsisSerie) {
     localStorage.setItem('idSerieStorage', serieId)
     localStorage.setItem('NombreSerieStorage', nombreSerie)
+    localStorage.setItem('sinopsisSerie', sinopsisSerie)
     
   }
 

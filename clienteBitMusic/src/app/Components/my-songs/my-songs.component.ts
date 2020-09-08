@@ -17,6 +17,7 @@ export class MySongsComponent implements OnInit {
   page: Number = 1;
   totalTabs: Array<any>;
   nombreSerie: string;
+  sinopsisSerie: String;
 
   constructor(
     private capService: CapService
@@ -24,6 +25,7 @@ export class MySongsComponent implements OnInit {
     this.apiURL = this.capService.apiURL
     this.localId = localStorage.getItem('idSerieStorage')
     this.nombreSerie= localStorage.getItem('NombreSerieStorage')
+    this.sinopsisSerie= localStorage.getItem('sinopsisSerie')
   }
 
   config: SwiperConfigInterface = {

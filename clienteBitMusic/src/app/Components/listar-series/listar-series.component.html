@@ -35,21 +35,21 @@
     <swiper class="carrusel" [config]="config" [(index)]="index">
         <div class="col-4  " *ngFor="let serie of series">
             <div class="card card-holder carta " style="width: 18rem;">
-                <img src="{{apiURL+'/getSerieFile/'+this.serie.image}}" (click)="guardarIdserieLocal(this.serie._id, this.serie.name)"
+                <img src="{{apiURL+'/getSerieFile/'+this.serie.image}}" (click)="guardarIdserieLocal(this.serie._id, this.serie.name, this.serie.sinopsis)"
                     class="card-img-top imagen-serie" alt="...">
                 <div class="contenedor-botones-texto">
                     <div class="texto-serie">
-                        <h5 (click)="guardarIdserieLocal(this.serie._id, this.serie.name)" class="card-title mb-0">{{serie.name}}
+                        <h5 (click)="guardarIdserieLocal(this.serie._id, this.serie.name, this.serie.sinopsis)" class="card-title mb-0">{{serie.name}}
                         </h5>
                         <p class="sinopsis">{{serie.sinopsis}}</p>
                     </div>
                     <div class="botones-container">
                         <div class=" d-flex justify-content-around">
                             <button *ngIf="this.user.role =='ROLE_ADMIN'" routerLink="/registrarCancion" type="button"
-                                class="btn boton-serie mb-3" (click)="guardarIdserieLocal(this.serie._id, this.serie.name)">Cargar
+                                class="btn boton-serie mb-3" (click)="guardarIdserieLocal(this.serie._id, this.serie.name, this.serie.sinopsis)">Cargar
                                 capitulo</button>
                             <button type="button" class="btn boton-serie mb-3" routerLink="/misCanciones"
-                                (click)="guardarIdserieLocal(this.serie._id, this.serie.name)">Ver
+                                (click)="guardarIdserieLocal(this.serie._id, this.serie.name, this.serie.sinopsis)">Ver
                             </button>
                         </div>
                     </div>
