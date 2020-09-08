@@ -24,6 +24,7 @@ hr{
     text-align: center;
     color: white;
     margin: 0 0 5px 0;
+    width: 57%;
     
 }
 .cap-container:hover{
@@ -34,14 +35,26 @@ hr{
     width: 100%;
     }
     .carrusel2{
-        width: 100%;
+        width: 30px;
+margin-right: 0;
+
+
     }
     .swiper-wrapper {
         
         transform: translate3d(-28px, 0px, 0px);
-        }    
+        }  
 
-
+.nombreSerie{
+    text-align: center;
+}        
+.sinopsisSerie{
+    margin-bottom: 0;
+    text-align: center;
+}
+.containerPrincipal{
+    margin-top: -79px;
+}
     
    
 

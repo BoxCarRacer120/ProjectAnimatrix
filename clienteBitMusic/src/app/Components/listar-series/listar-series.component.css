@@ -63,6 +63,7 @@
 }
 .seccion-serie{
     color: white;
+    margin-top: 30px;
 }
 hr{
     color: #BF1564;
@@ -71,3 +72,4 @@ hr{
 .swiper-button-next::after,.swiper-button-next {
     color: var(--swiper-navigation-color,#38ff00) !important;
     }
+  

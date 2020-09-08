@@ -33,7 +33,7 @@ export class MySongsComponent implements OnInit {
     direction: 'horizontal',
     slidesPerView: 10,
     slideToClickedSlide: true,
-    slidesPerGroup: 10,
+    slidesPerGroup: 1,
     loopFillGroupWithBlank: true,
     mousewheel: true,
     scrollbar: false,
@@ -47,7 +47,7 @@ export class MySongsComponent implements OnInit {
     roundLengths: true,
     slidesOffsetBefore: 100,
     slidesOffsetAfter: 100,
-    spaceBetween: 1,
+    spaceBetween: 0,
     breakpoints: {
       // when window width is >= 320px
       320: {

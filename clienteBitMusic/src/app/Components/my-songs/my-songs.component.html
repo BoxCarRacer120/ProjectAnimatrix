@@ -1,5 +1,5 @@
 
-<div class="container">
+<div class="container containerPrincipal">
     <div class="row flex-column justify-content-center align-items-center mt-5">
         <div class=" col-12">
             <div class="row justify-content-center align-items-center">
@@ -7,7 +7,7 @@
                     <i class="fas fa-backward icon-player" (click)="changeSong('previous')"></i>
                 </div> -->
                 <div class="col-8">
-                    <video style="width: 100%;" src="" controls id="player" data-song=""></video>
+                    <video class="video1" style="width: 100%;" src="" controls id="player" data-song=""></video>
                 </div>
                 <!-- <div class="col text-left">
                     <i class="fas fa-forward icon-player" (click)="changeSong('next')"></i>
@@ -16,16 +16,16 @@
         </div>
         <hr />
         <div class="informacion">
-            <h4>{{nombreSerie}}</h4>
-            <h4>{{sinopsisSerie}}</h4>
+            <h4 class="nombreSerie">{{nombreSerie}}</h4>
+            <p class="sinopsisSerie">{{sinopsisSerie}}</p>
             
         </div>
         <hr>
-        <div class="container col-12">
+        <div class="container col-8">
             <div class="row">
                 
                 <swiper class="carrusel" [config]="config" [(index)]="index">
-                    <div class="row-1 carrusel2" *ngFor="let cap of caps">
+                    <div class="carrusel2" *ngFor="let cap of caps">
                       
                         <div (click)="changeSong(cap.file, cap.capNumber)" class="cap-container">
                             {{cap.capNumber}}

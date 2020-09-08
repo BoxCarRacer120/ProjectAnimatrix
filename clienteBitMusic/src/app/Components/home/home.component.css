@@ -188,4 +188,7 @@ box-shadow: inset -20px 20px 60px #2a3036,
     top: auto;
     bottom: .75rem;
 } */
+.row{
+    margin-left: 0; margin-right: 0;
+}
 

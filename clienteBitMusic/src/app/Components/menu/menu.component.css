@@ -50,3 +50,7 @@ ul li a {
     border: 3px solid #BF1564;
     cursor: pointer;
 }
+.imagenLogo{
+    width: 100%;
+    height: 130px;
+}
