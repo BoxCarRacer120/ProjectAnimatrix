@@ -1,9 +1,10 @@
 export interface User{
-    id: String,
+    id: String;
     firstName: String;
     lastname: String;
     email: String;
     password: String;
     role: String;
-    image: String
+    image: String;
+    message: String;
 }

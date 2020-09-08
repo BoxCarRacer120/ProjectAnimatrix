@@ -41,13 +41,13 @@ export class CreateUserComponent implements OnInit {
     if(this.userForm.valid){
       this.userService.createUser(this.userForm.value).subscribe(
         (createdUser) => {
-          swal('Registro Exítoso', "", 'success')
-         /*  if(createdUser.message == "El correo ya existe"){
+          
+          if(createdUser.message == "El correo ya existe"){
             swal('usuario ya existe', "", 'error');
           }else{
             swal('Registro Exítoso', "", 'success');
             this.route.navigate(['/login'])
-          } */
+          }
         },(error) => {
           console.log("error al registrar el usuario", error)
         }

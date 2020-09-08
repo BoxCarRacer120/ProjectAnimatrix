@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CapService } from '../../services/cap.service';
-
+import { SwiperModule, SwiperConfigInterface } from 'ngx-swiper-wrapper';
 
 @Component({
   selector: 'app-my-songs',
@@ -8,6 +8,7 @@ import { CapService } from '../../services/cap.service';
   styleUrls: ['./my-songs.component.css']
 })
 export class MySongsComponent implements OnInit {
+  index
   localId: string;
   caps: Array<any>;
   apiURL: String;
@@ -15,18 +16,49 @@ export class MySongsComponent implements OnInit {
   totSongs: Number;
   page: Number = 1;
   totalTabs: Array<any>;
+  nombreSerie: string;
 
   constructor(
     private capService: CapService
   ) {
     this.apiURL = this.capService.apiURL
     this.localId = localStorage.getItem('idSerieStorage')
+    this.nombreSerie= localStorage.getItem('NombreSerieStorage')
   }
+
+  config: SwiperConfigInterface = {
+    a11y: true,
+    direction: 'horizontal',
+    slidesPerView: 10,
+    slideToClickedSlide: true,
+    slidesPerGroup: 10,
+    loopFillGroupWithBlank: true,
+    mousewheel: true,
+    scrollbar: false,
+    watchSlidesProgress: true,
+    navigation: true,
+    keyboard: true,
+    initialSlide: 5,
+    pagination: false,
+    centeredSlides: true,
+    loop: true,
+    roundLengths: true,
+    slidesOffsetBefore: 100,
+    slidesOffsetAfter: 100,
+    spaceBetween: 1,
+    breakpoints: {
+      // when window width is >= 320px
+      320: {
+        slidesPerView: 10
+      }
+    }
+  };
 
   /** Tarea pesadas como traer todas las canciones almacenadas en la DB */
   ngOnInit(): void {
     this.getTotalSongs();
     this.loadSongs(this.page)
+
   }
 
   loadSongs(page: any) {
