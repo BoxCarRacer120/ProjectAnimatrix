@@ -29,11 +29,11 @@
             </li>
 
         </ul>
-        <div class="d-flex flex-row">
-            <span routerLink="/actualizarUser" class="form-inline text-white nombre-user" *ngIf="user;"> <i class="fas fa-user-ninja ninja"></i>
+        <div class="d-flex flex-row" *ngIf="user">
+            <span routerLink="/actualizarUser" class="form-inline text-white nombre-user" > <i class="fas fa-user-ninja ninja"></i>
                 Hola {{this.user.firstName}}
             </span>
-            <img routerLink="/actualizarUser" class="mi-carita" src="{{apiURL+'/get-image-user/'+this.user.image}}" width="50" height="50">
+            <img routerLink="/actualizarUser" class="mi-carita" src="{{apiURL+'/get-image-user/'+this.user.image}} " width="50" height="50">
         </div>
         
         

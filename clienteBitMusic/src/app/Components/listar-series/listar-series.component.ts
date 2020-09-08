@@ -70,6 +70,7 @@ export class ListarSeriesComponent implements OnInit {
       (allSeries: Array<any>) => {
         this.totSeries = allSeries.length
         this.series = allSeries
+        console.log(this.series, "series------")
 
       }
     )
@@ -84,8 +85,10 @@ export class ListarSeriesComponent implements OnInit {
 
     })
   }
-  guardarIdserieLocal(serieId) {
-    localStorage.setItem('idSerieStorage', serieId)
+  guardarIdserieLocal( nombreSerie) {
+    /* localStorage.setItem('idSerieStorage', serieId) */
+    localStorage.setItem('NombreSerieStorage', nombreSerie)
+    console.log(nombreSerie)
   }
 
 }

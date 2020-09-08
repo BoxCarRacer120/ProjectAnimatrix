@@ -4,6 +4,8 @@ import { Cap } from '../models/Cap'; //Cargamos el modelo
 import { UserService } from './user.service';
 import { GLOBAL } from './global'
 
+  
+
 @Injectable({
   providedIn: 'root'
 })
