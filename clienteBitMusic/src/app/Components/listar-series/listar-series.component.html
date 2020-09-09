@@ -30,26 +30,101 @@
 
     </div>
     <!-- swiper -->
+
+    <!-- swipper shonnen -->
     <h3 class="seccion-serie">Shonnen</h3>
-    
-    
+
+
     <hr>
-    <swiper class="carrusel" [config]="config" [(index)]="index">
-        <div class="col-11 col-md-6 col-lg-4 col-sm-7 col-xl-4 carruselDirectorio" *ngFor="let serie of series">
+    <swiper class="carrusel" [config]="config" [(index)]="indexShonnen">
+        <div class="col-11 col-md-6 col-lg-4 col-sm-7 col-xl-4 carruselDirectorio" *ngFor="let serie of seriesShonnen">
             <div class="card card-holder carta " style="width: 300px">
-                <img src="{{apiURL+'/getSerieFile/'+this.serie.image}}" (click)="guardarIdserieLocal(this.serie._id, this.serie.name, this.serie.sinopsis)"
+                <img src="{{apiURL+'/getSerieFile/'+this.serie.image}}"
+                    (click)="guardarIdserieLocal(this.serie._id, this.serie.name, this.serie.sinopsis)"
                     class="card-img-top imagen-serie" alt="...">
                 <div class="contenedor-botones-texto">
                     <div class="texto-serie">
-                        <h5 (click)="guardarIdserieLocal(this.serie._id, this.serie.name, this.serie.sinopsis)" class="card-title mb-0">{{serie.name}}
+                        <h5 (click)="guardarIdserieLocal(this.serie._id, this.serie.name, this.serie.sinopsis)"
+                            class="card-title mb-0">{{serie.name}}
                         </h5>
                         <p class="sinopsis">{{serie.sinopsis}}</p>
-                        
+
                     </div>
                     <div class="botones-container">
                         <div class=" d-flex justify-content-around">
                             <button *ngIf="this.user.role =='ROLE_ADMIN'" routerLink="/registrarCancion" type="button"
-                                class="btn boton-serie mb-3 col-6" (click)="guardarIdserieLocal(this.serie._id, this.serie.name, this.serie.sinopsis)">Cargar
+                                class="btn boton-serie mb-3 col-6"
+                                (click)="guardarIdserieLocal(this.serie._id, this.serie.name, this.serie.sinopsis)">Cargar
+                                capitulo</button>
+                            <button type="button" class="btn boton-serie mb-3 " routerLink="/misCanciones"
+                                (click)="guardarIdserieLocal(this.serie._id, this.serie.name, this.serie.sinopsis)">Ver
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </swiper>
+    <br><br>
+
+    <!-- swiper thriller -->
+    <h3 class="seccion-serie">Thriller</h3>
+
+
+    <hr>
+    <swiper class="carrusel" [config]="config" [(index)]="indexThriller">
+        <div class="col-11 col-md-6 col-lg-4 col-sm-7 col-xl-4 carruselDirectorio" *ngFor="let serie of seriesThriller">
+            <div class="card card-holder carta " style="width: 300px">
+                <img src="{{apiURL+'/getSerieFile/'+this.serie.image}}"
+                    (click)="guardarIdserieLocal(this.serie._id, this.serie.name, this.serie.sinopsis)"
+                    class="card-img-top imagen-serie" alt="...">
+                <div class="contenedor-botones-texto">
+                    <div class="texto-serie">
+                        <h5 (click)="guardarIdserieLocal(this.serie._id, this.serie.name, this.serie.sinopsis)"
+                            class="card-title mb-0">{{serie.name}}
+                        </h5>
+                        <p class="sinopsis">{{serie.sinopsis}}</p>
+
+                    </div>
+                    <div class="botones-container">
+                        <div class=" d-flex justify-content-around">
+                            <button *ngIf="this.user.role =='ROLE_ADMIN'" routerLink="/registrarCancion" type="button"
+                                class="btn boton-serie mb-3 col-6"
+                                (click)="guardarIdserieLocal(this.serie._id, this.serie.name, this.serie.sinopsis)">Cargar
+                                capitulo</button>
+                            <button type="button" class="btn boton-serie mb-3 " routerLink="/misCanciones"
+                                (click)="guardarIdserieLocal(this.serie._id, this.serie.name, this.serie.sinopsis)">Ver
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </swiper>
+    <!-- swiper romance -->
+    <h3 class="seccion-serie">Romance</h3>
+
+
+    <hr>
+    <swiper class="carrusel" [config]="config" [(index)]="indexRomance">
+        <div class="col-11 col-md-6 col-lg-4 col-sm-7 col-xl-4 carruselDirectorio" *ngFor="let serie of seriesRomance">
+            <div class="card card-holder carta " style="width: 300px">
+                <img src="{{apiURL+'/getSerieFile/'+this.serie.image}}"
+                    (click)="guardarIdserieLocal(this.serie._id, this.serie.name, this.serie.sinopsis)"
+                    class="card-img-top imagen-serie" alt="...">
+                <div class="contenedor-botones-texto">
+                    <div class="texto-serie">
+                        <h5 (click)="guardarIdserieLocal(this.serie._id, this.serie.name, this.serie.sinopsis)"
+                            class="card-title mb-0">{{serie.name}}
+                        </h5>
+                        <p class="sinopsis">{{serie.sinopsis}}</p>
+
+                    </div>
+                    <div class="botones-container">
+                        <div class=" d-flex justify-content-around">
+                            <button *ngIf="this.user.role =='ROLE_ADMIN'" routerLink="/registrarCancion" type="button"
+                                class="btn boton-serie mb-3 col-6"
+                                (click)="guardarIdserieLocal(this.serie._id, this.serie.name, this.serie.sinopsis)">Cargar
                                 capitulo</button>
                             <button type="button" class="btn boton-serie mb-3 " routerLink="/misCanciones"
                                 (click)="guardarIdserieLocal(this.serie._id, this.serie.name, this.serie.sinopsis)">Ver

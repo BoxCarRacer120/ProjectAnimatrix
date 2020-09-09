@@ -53,7 +53,7 @@ exports.findAll = (req, res) => {
 
     let name = new RegExp(`.*${req.query.searchBy || ''}.*`, 'i')
 
-    Serie.find({ name: name }, null, { skip: page, limit: 20 })
+    Serie.find({ genre: name }, null, { skip: page, limit: 20 })
         .then(series => {
             res.send(series)
         }).catch(error => {
@@ -76,19 +76,6 @@ exports.findOne = (req, res) => {
                 res.status(200).send({
                     serie
                 })
-                // Cap.find({ seriesId: idSerie }, (err, caps) => {
-                //     if (err) {
-                //         console.log(err);
-                //     } else {
-                //         if (!caps) {
-                //             console.log("No hay capitulos de esta serie");
-                //         } else {
-                //             res.status(200).send({
-                //                 caps
-                //             })
-                //         }
-                //     }
-                // })
 
             }
         }

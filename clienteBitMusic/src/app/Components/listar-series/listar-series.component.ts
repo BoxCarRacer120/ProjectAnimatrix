@@ -12,9 +12,14 @@ import { SwiperModule, SwiperConfigInterface } from 'ngx-swiper-wrapper';
 export class ListarSeriesComponent implements OnInit {
   role
   user
-  index
+  indexShonnen
+  indexThriller
+  indexRomance
   idSerie: String;
   series: Array<any>;
+  seriesShonnen: Array<any>;
+  seriesThriller: Array<any>;
+  seriesRomance: Array<any>;
   apiURL: String;
   search: String;
   totSeries: Number;
@@ -58,7 +63,11 @@ export class ListarSeriesComponent implements OnInit {
 
   ngOnInit(): void {
     this.getSeries(this.page)
+    this.getSeriesShonnen(this.page)
+    this.getSeriesThriller(this.page)
+    this.getSeriesRomance(this.page)
   }
+
   getSeries(page: any) {
     console.log('this.search -> ', this.search)
     let filter = ''
@@ -72,6 +81,48 @@ export class ListarSeriesComponent implements OnInit {
         this.series = allSeries
         console.log(this.series, "series------")
 
+      }
+    )
+  }
+  // buscador de shonnen -----------------------------------------
+  getSeriesShonnen(page: any) {
+    let filter = `?searchBy=Shonnen`
+
+
+    this.SeriesService.getSeries(filter, page).subscribe(
+      (allSeries: Array<any>) => {
+        this.totSeries = allSeries.length
+        this.seriesShonnen = allSeries
+        console.log(this.seriesShonnen, "seriesShonnen------")
+      }
+    )
+  }
+
+  // buscador thriller 
+
+  getSeriesThriller(page: any) {
+    let filter = `?searchBy=Thriller`
+
+
+    this.SeriesService.getSeries(filter, page).subscribe(
+      (allSeries: Array<any>) => {
+        this.totSeries = allSeries.length
+        this.seriesThriller = allSeries
+        console.log(this.seriesThriller, "seriesThriller------")
+      }
+    )
+  }
+  // buscador romance 
+
+  getSeriesRomance(page: any) {
+    let filter = `?searchBy=Romance`
+
+
+    this.SeriesService.getSeries(filter, page).subscribe(
+      (allSeries: Array<any>) => {
+        this.totSeries = allSeries.length
+        this.seriesRomance = allSeries
+        console.log(this.seriesRomance, "seriesRomance------")
       }
     )
   }
@@ -89,7 +140,7 @@ export class ListarSeriesComponent implements OnInit {
     localStorage.setItem('idSerieStorage', serieId)
     localStorage.setItem('NombreSerieStorage', nombreSerie)
     localStorage.setItem('sinopsisSerie', sinopsisSerie)
-    
+
   }
 
 }

@@ -51,6 +51,37 @@ ul li a {
     cursor: pointer;
 }
 .imagenLogo{
-    width: 100%;
-    height: 130px;
+    width: 70%;
+    height: 80px;
+    transform: translateX(35%);
 }
+.navbar-toggler {
+    border: 2px solid #BF1564;
+    padding: 6px 10px;
+    /* position: relative;
+    min-height: 40px;
+    min-width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center; */
+    
+}
+.fa-bars{
+    color: #BF1564 ;
+}
+/* .inner-burger, .inner-burger::before,.inner-burger::after { */
+    /* position: absolute; */
+    /* top: 0;
+    left: 0; */
+    /* content: "";
+    width: 20px;
+    height: 3px;
+    background-color: #BF1564; */
+/* } */
+/* .inner-burger::before{
+    top: 10px;
+    
+}
+.inner-burger::after{
+    top: 20px;
+} */
