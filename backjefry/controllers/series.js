@@ -106,3 +106,16 @@ exports.getTotalSeries = (req, res) => {
         })
     })
 }
+
+exports.favoritoSerie = (req, res) => {
+    Serie.find().then(seriesfav => {
+        res.status(200).send({
+            seriesfavorito: seriesfav
+        })
+    }).catch(error => {
+        res.status(500).send({
+            message: error.message || "error al obtener favorito"
+        })
+
+    })
+}
