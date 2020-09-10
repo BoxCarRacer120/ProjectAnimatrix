@@ -63,6 +63,7 @@ exports.findAll = (req, res) => {
         })
 }
 
+
 exports.findOne = (req, res) => {
     const idSerie = req.params.idSerie
 

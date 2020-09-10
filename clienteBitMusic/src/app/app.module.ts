@@ -23,6 +23,7 @@ import { AuthGuard } from './guards/auth.guard';
 import { ActualizarUserComponent } from './Components/actualizar-user/actualizar-user.component';
 import { ListarSeriesComponent } from './Components/listar-series/listar-series.component';
 import { CrearSerieComponent } from './Components/crear-serie/crear-serie.component';
+import { SeriesFavoritasComponent } from './Components/series-favoritas/series-favoritas.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -34,6 +35,8 @@ const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'actualizarUser', component: ActualizarUserComponent },
   { path: 'crearSerie', component: CrearSerieComponent },
+  { path: 'favSeries', component: SeriesFavoritasComponent },
+
 
 
   { path: '**', component: PageNotFoundComponent }//Ruta para cuando no encontramos una página
@@ -58,6 +61,7 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     ActualizarUserComponent,
     ListarSeriesComponent,
     CrearSerieComponent,
+    SeriesFavoritasComponent,
 
   ],
   imports: [

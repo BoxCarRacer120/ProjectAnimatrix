@@ -19,9 +19,9 @@ export class MenuComponent implements OnInit {
     this.apiURL = this.userService.apiURL;
     this.userService.authenticate$.subscribe(
       userAuth => {
-        console.log("userAuth --> ", userAuth);
+
         this.user = userAuth
-        console.log(this.user, "savergaasasasdasdas");
+
       }
     )
   }

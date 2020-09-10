@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12  col-md-6 col-lg-4 col-xl-3  mb-4 mt-5 columna-mia" *ngFor="let serie of favArray">
+            <div class="card card-holder carta " style="width: 18rem;">
+                <img src="{{apiURL+'/getSerieFile/'+this.serie.image}}" (click)="guardarIdserieLocal(this.serie._id)"
+                    class="card-img-top imagen-serie" alt="...">
+                <div class="contenedor-botones-texto">
+                    <div class="texto-serie">
+                        <h5 (click)="guardarIdserieLocal(this.serie._id)" class="card-title mb-0">{{serie.name}}
+                        </h5>
+                        <p class="sinopsis">{{serie.sinopsis}}</p>
+                    </div>
+                    <div class="botones-container">
+                        <div class=" d-flex justify-content-around">
+
+                            <button type="button" class="btn boton-serie mb-3" routerLink="/misCanciones"
+                                (click)="guardarIdserieLocal(this.serie._id)">Ver
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

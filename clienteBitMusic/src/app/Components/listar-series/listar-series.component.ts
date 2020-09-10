@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SeriesService } from '../../services/series.service';
 import { UserService } from '../../services/user.service';
 import { SwiperModule, SwiperConfigInterface } from 'ngx-swiper-wrapper';
+import { ThrowStmt } from '@angular/compiler';
 
 
 @Component({
@@ -15,6 +16,7 @@ export class ListarSeriesComponent implements OnInit {
   indexShonnen
   indexThriller
   indexRomance
+  favArray: Array<any>;
   idSerie: String;
   series: Array<any>;
   seriesShonnen: Array<any>;
@@ -34,6 +36,7 @@ export class ListarSeriesComponent implements OnInit {
     this.user = this.userService.infoUser();
     this.role = this.user.role
     console.log(this.role);
+    this.favArray = []
   }
   config: SwiperConfigInterface = {
     a11y: true,
@@ -115,7 +118,7 @@ export class ListarSeriesComponent implements OnInit {
   // buscador romance 
 
   getSeriesRomance(page: any) {
-    let filter = `?searchBy=Romance`
+    let filter = `?searchBy=`
 
 
     this.SeriesService.getSeries(filter, page).subscribe(
@@ -140,6 +143,26 @@ export class ListarSeriesComponent implements OnInit {
     localStorage.setItem('idSerieStorage', serieId)
     localStorage.setItem('NombreSerieStorage', nombreSerie)
     localStorage.setItem('sinopsisSerie', sinopsisSerie)
+
+  }
+
+  fillHeart(e, idFav) {
+
+    e.target.classList.toggle("heart-fill")
+
+    let buscarSerie = this.favArray.find(element => element == idFav)
+    let posicionSerie = this.favArray.indexOf(buscarSerie)
+    console.log(posicionSerie, "POSICION DE LA SERIE");
+    if (!buscarSerie) {
+      this.favArray.push(idFav)
+    } else {
+      this.favArray.splice(posicionSerie, 1)
+    }
+    let stringedArray = JSON.stringify(this.favArray)
+    localStorage.setItem("arregloSeriesFav",stringedArray)
+
+    console.log(this.favArray);
+
 
   }
 

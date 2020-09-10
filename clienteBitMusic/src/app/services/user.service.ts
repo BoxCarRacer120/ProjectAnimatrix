@@ -8,17 +8,17 @@ import { GLOBAL } from './global'
   providedIn: 'root'
 })
 export class UserService {
-  
+
   private authenticate = new BehaviorSubject<{}>(null); //Creamos una nueva instancia de la variable pra poder utilizarla. <{}> => tipo de dato (null)=> Valor inicial
   authenticate$ = this.authenticate.asObservable();//Esta variable está suscrita, esto quiere decir que podrá estar escuchando todos los cambios que tenga
 
-  public apiURL :string;
+  public apiURL: string;
 
   constructor(
     private http: HttpClient
   ) {
     this.authenticate.next(this.infoUser()) //Validamos si el usuario inició sesión, esto nos funcionará son importar que recarguemos el navegador,
-    this.apiURL=GLOBAL.url
+    this.apiURL = GLOBAL.url
   }
 
   createUser(formUser) {
@@ -82,6 +82,8 @@ export class UserService {
 
   removeToken() {
     localStorage.removeItem('token');
+    localStorage.removeItem('arregloSeriesFav');
+
     this.authenticate.next(null)
   }
 
