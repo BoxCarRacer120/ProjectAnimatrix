@@ -10,5 +10,6 @@ api.get('/getAllSeries/:page', /**mdAuth.authUser,*/ series.findAll)
 api.get('/getSerieFile/:image', series.getSerieFile)
 api.get('/getTotalSeries', /**mdAuth.authUser,*/ series.getTotalSeries)
 api.get('/getOne/:idSerie',/**mdAuth.authUser,*/ series.findOne)
+api.get('/getFavorites',/**mdAuth.authUser,*/ series.favoritoSerie)
 
 module.exports = api;
