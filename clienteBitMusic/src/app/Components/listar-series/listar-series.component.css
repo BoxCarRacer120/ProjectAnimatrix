@@ -12,6 +12,11 @@
 }
 .card-holder{
     position: relative;
+    width: 80% !important;
+margin-left: 8px;
+border-left-width: 0px;
+margin-right: 8px;
+border-right-width: 0px;
 }
 .columna-mia {
     padding: 0 !important;
@@ -97,3 +102,4 @@ hr{
 .imagen-serie{
     height: 350px;
 }
+
