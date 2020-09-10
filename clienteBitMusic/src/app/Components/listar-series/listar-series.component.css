@@ -75,7 +75,8 @@ hr{
     color: var(--swiper-navigation-color,#38ff00) !important;
     }
 .carruselDirectorio{
-    width: 40%;
+    width: 50%;
+    
 }
 .flat-icon{
     cursor: pointer;
@@ -91,4 +92,8 @@ hr{
 }
 .heart-fill{
     fill: #f241a3 !important;
+}
+
+.imagen-serie{
+    height: 350px;
 }

@@ -118,7 +118,7 @@ export class ListarSeriesComponent implements OnInit {
   // buscador romance 
 
   getSeriesRomance(page: any) {
-    let filter = `?searchBy=`
+    let filter = `?searchBy=Romance`
 
 
     this.SeriesService.getSeries(filter, page).subscribe(
