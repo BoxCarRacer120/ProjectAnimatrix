@@ -13,14 +13,12 @@
 .card-holder{
     position: relative;
 }
-.columna-mia {
-    padding: 0 !important;
-}
-.columna-mia .carta{
-    width: 100%;
 
-
-}
+@media (max-width: 992px) {
+    .card {
+      width: 13rem !important;
+    }
+  }
 .carta {
     background: #000;
     transition: all 0.5s ease-in-out;

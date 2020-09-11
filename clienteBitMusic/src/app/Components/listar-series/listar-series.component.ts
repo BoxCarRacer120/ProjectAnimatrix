@@ -41,8 +41,8 @@ export class ListarSeriesComponent implements OnInit {
   config: SwiperConfigInterface = {
     a11y: true,
     direction: 'horizontal',
-    slidesPerView: 2,
-    slideToClickedSlide: true,
+    slidesPerView: 1,
+    slideToClickedSlide: false,
     mousewheel: true,
     scrollbar: false,
     watchSlidesProgress: true,
@@ -50,16 +50,16 @@ export class ListarSeriesComponent implements OnInit {
     keyboard: true,
     initialSlide: 1,
     pagination: false,
-    centeredSlides: true,
+    centeredSlides: false,
     loop: true,
     roundLengths: true,
-    slidesOffsetBefore: 100,
-    slidesOffsetAfter: 100,
-    spaceBetween: 0,
+    slidesOffsetBefore: 50,
+    slidesOffsetAfter: 50,
+    spaceBetween: 20,
     breakpoints: {
       // when window width is >= 320px
-      320: {
-        slidesPerView: 2
+      450: {
+        slidesPerView: 3
       }
     }
   };
@@ -159,7 +159,7 @@ export class ListarSeriesComponent implements OnInit {
       this.favArray.splice(posicionSerie, 1)
     }
     let stringedArray = JSON.stringify(this.favArray)
-    localStorage.setItem("arregloSeriesFav",stringedArray)
+    localStorage.setItem("arregloSeriesFav", stringedArray)
 
     console.log(this.favArray);
 

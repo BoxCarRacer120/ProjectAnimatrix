@@ -62,17 +62,17 @@ box-shadow: inset -20px 20px 60px #2a3036,
     transform: translateY(75%);
     
 }
+.relativo{
+height: 550px;
+}
 
 /* carrusel */
-.margen{
-    margin-top: 30px !important;
-}
-.height-propio{
-    height: 100%;
-}
+/* .margen{
+    margin-top: 0 !important;
+} */
+
 
 .absoluto{
-    transform: translateY(-250%); 
     padding: 30px !important;
     background: rgba(0,0,0,0.4) !important;
     border-radius: 20px !important;
@@ -96,7 +96,6 @@ box-shadow: inset -20px 20px 60px #2a3036,
     margin-top: 5.5rem;
     display: flex;
     justify-content: center;
-    background-image: url('../../../assets/wallpapers/noticias-anime.jpg');
     background-position: top;
     background-size: cover;
     background-repeat: no-repeat;
@@ -105,6 +104,15 @@ box-shadow: inset -20px 20px 60px #2a3036,
     border: solid rgba(255,255,255,1) 2px;
     box-shadow: 0px 0px 30px 2px #000000;
 }
+/* .bg-1{
+    background-image: url('../../../assets/wallpapers/');
+
+}
+.bg-2{
+    background-image: url('../../../assets/wallpapers/edward-elric-background-full-hd-310779.jpg');
+
+} */
+
 .image-block{
     display: block;
 }
