@@ -104,17 +104,21 @@ height: 550px;
     border: solid rgba(255,255,255,1) 2px;
     box-shadow: 0px 0px 30px 2px #000000;
 }
-/* .bg-1{
-    background-image: url('../../../assets/wallpapers/');
+.imgback1{
+    background-image: url('../../../assets/wallpapers/imgback2.jpg');
 
 }
-.bg-2{
-    background-image: url('../../../assets/wallpapers/edward-elric-background-full-hd-310779.jpg');
+.imgback2{
+    background-image: url('../../../assets/wallpapers/imgback5.jpg');
 
-} */
+}
+.imgback3{
+    background-image: url('../../../assets/wallpapers/imgback3.jpg');
 
-.image-block{
-    display: block;
+}
+.imgback4{
+    background-image: url('../../../assets/wallpapers/imgback4.jpg');
+
 }
 
 .ribbon-box {
